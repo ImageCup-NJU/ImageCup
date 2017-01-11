@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\libs\AMap_Location_V3.2.0_20161205.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="430455692ed706628086e4ae3604645949ef339e">
+        <dex dex="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\build\intermediates\pre-dexed\debug\AMap_Location_V3.2.0_20161205_b4aaec44971f006bb334ffebb5841b5de1aaae91.jar" />
+    </item>
+    <item
+        jar="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d">
+        <dex dex="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\build\intermediates\pre-dexed\debug\android-support-v4_76d1b023c89d1114152c86c014a775f7ff02da97.jar" />
+    </item>
+    <item
+        jar="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\libs\AMap_Search_V3.6.1_20161122.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="11dbc05ce2aec81a7c7b3e3b0236a91a5559df7f">
+        <dex dex="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\build\intermediates\pre-dexed\debug\AMap_Search_V3.6.1_20161122_d999c31ed128851529e303aed674710073b4fe3a.jar" />
+    </item>
+    <item
+        jar="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\libs\Android_Map3D_SDK_V4.1.3_20161208.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c108325bfcbf3212ddc2e6ea6e55f56742537381">
+        <dex dex="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\build\intermediates\pre-dexed\debug\Android_Map3D_SDK_V4.1.3_20161208_cafb236afd70164fe50b5fe02f2e4e1dad0a5f2b.jar" />
+    </item>
+    <item
+        jar="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\libs\Volley.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="77faa9ffd189160d1e22c58fdf5eed0a9a08b816">
+        <dex dex="E:\AR\AMAP\AMap_Android_API_3DMap_Demo\android_studio\AMap3DDemo\app\build\intermediates\pre-dexed\debug\Volley_893a1867687f7d96a585eb66be09608206904a46.jar" />
+    </item>
+
+</items>
