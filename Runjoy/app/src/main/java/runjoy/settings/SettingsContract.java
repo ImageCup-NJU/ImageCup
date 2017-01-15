@@ -19,7 +19,15 @@ public interface SettingsContract {
     }
 
     interface Presenter extends BasePresenter {
-        // TODO: 2017/1/11 个人偏好设置 
+        // TODO: 2017/1/11 个人偏好设置
+
+        /**
+         * @param userName
+         * @param password
+         * @param distance 意在每跑多少公里处接受任务
+         * @return
+         */
+        boolean saveUserInfo(String userName,String password,String distance);
     }
 
 }
