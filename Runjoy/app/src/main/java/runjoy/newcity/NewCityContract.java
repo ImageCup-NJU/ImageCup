@@ -28,12 +28,12 @@ public interface NewCityContract {
          * 在到达目的地后设定新的目标
          * @return 操作结果
          */
-        boolean newCity(City city);
+        boolean newCity(String city);
 
         /**
          * 更改当前的目的地
          * @return 操作结果
          */
-        boolean modifyCity(City city);
+        boolean modifyCity(String city);
     }
 }
