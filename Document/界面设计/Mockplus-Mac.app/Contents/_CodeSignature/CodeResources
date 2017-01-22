@@ -147,246 +147,125 @@
 			z0v7HuMNwCCVu0DNpJBV0QT4W5TKfOqdSf6woVag4uA=
 			</data>
 		</dict>
-		<key>libs/icons/sketch/charge.index</key>
+		<key>libs/icons/sketch/charge.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dKyuyzQmhOtVEDEfh1Od56OEeo0=
+			hufsnWhGqwzHGHncfuPTIhDZkT8=
 			</data>
 			<key>hash2</key>
 			<data>
-			j49PFItEd/A3O4DqgfKkG9JK1b/9t5r9dwn41ZilND8=
+			R0IfX4KS8fo1VPtjJUZTR9eaPbWf6+3wQIrynz0qFfQ=
 			</data>
 		</dict>
-		<key>libs/icons/sketch/charge.mki</key>
+		<key>libs/icons/sketch/free.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qr8o66dUrGAFM3Or9a6aYcttq7A=
+			Ij9z72mmyh4vfA0S93myYYzD7ys=
 			</data>
 			<key>hash2</key>
 			<data>
-			ukqe6eufLGimTxyr99sNXtwXzXe8z6Wx/OGlYBoDXOs=
+			mY+W5Q0TWo21L21y1gdkgwISJdvlAas2M89Hc4RdsJQ=
 			</data>
 		</dict>
-		<key>libs/icons/sketch/free.index</key>
+		<key>libs/icons/svg/JdIonicons.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HvUZzIHj1BxWlti4cV4V7rf7VZM=
+			xjbSRMTEb/P7dWeCecHmU9Ee4+E=
 			</data>
 			<key>hash2</key>
 			<data>
-			C+6Y0RpZpqOZjDAfn0IUa6ArOjqyZz2HU3UcqFfGUyM=
+			LotmOwQYKBeex6ysbUtaxeg2CNll9BCA2Enk0p7cj0k=
 			</data>
 		</dict>
-		<key>libs/icons/sketch/free.mki</key>
+		<key>libs/icons/svg/jdFontAwesome.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MQiDghVcibFtfkGR//MN04mqZ34=
+			AmyJGzOV0NKgu2XpzzAWyxmh6bg=
 			</data>
 			<key>hash2</key>
 			<data>
-			I7uQe26OgjoS46VPD93jx00fv3B9WzpMDcoN30oYB9s=
+			MQReMBVdHQK2F9xQraX3OwmqbVS65bTqepUVMlWM7iM=
 			</data>
 		</dict>
-		<key>libs/icons/svg/JdIonicons.index</key>
+		<key>libs/icons/svg/jdFontCustom.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			35XZNSRu9zY6x/9QkKTgxGe46HQ=
+			Tb1kIYdnKQphnMkwoz/iMB9P8cw=
 			</data>
 			<key>hash2</key>
 			<data>
-			UTsOvmPV2O5n1xqYc6ZWTz15jc3B13YM6mRl4bfZFyo=
+			qNVFAfXaZe8qXO4mxdz4Yj6WfhdZT8Ch8i9p9MfCBeg=
 			</data>
 		</dict>
-		<key>libs/icons/svg/JdIonicons.mki</key>
+		<key>libs/icons/svg/jdFreeIcon.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XH8LCaQ/q5PSgTJOmvLx0QmBvYY=
+			H+lK58bN/t/BroknoMrEI4eyjCY=
 			</data>
 			<key>hash2</key>
 			<data>
-			pGqxPYWpH8zfkHFeuzYb3yGfXzBVJ+pGobhbshfRHEY=
+			Hwd1rNRs48qgWuqckWC2uWH3nyvgFbhyBOWCXydvTSM=
 			</data>
 		</dict>
-		<key>libs/icons/svg/jdFontAwesome.index</key>
+		<key>libs/icons/svg/jdIcoFont.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9dTvFa7Jjz3nlcw5MTnyN/irwqg=
+			Vesdct7gWH6AKY9CTU8cColq5uM=
 			</data>
 			<key>hash2</key>
 			<data>
-			JXEqCEA5XdTWWzJ+0QqEro2DoltxlNMK7ITtmNU0LZs=
+			vmSdpQ41RWcgnejzy0a5sLlGUzFohPeUdwLkZt9h4d4=
 			</data>
 		</dict>
-		<key>libs/icons/svg/jdFontAwesome.mki</key>
+		<key>libs/icons/svg/jdIcoMoonFree.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BBbGUkIkyeNShqz/e9bzoSBKrlY=
+			0TQxGONz6UHy5ssavNBo8nCrXzE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qYObLdKOp+o+ljl5OIHiRFbMt89c+WYjO6jRkYKPyJI=
+			35wiDvKmYhLLK+Frw7MMiIVwUT6tOfK8SBCU3Lzub0E=
 			</data>
 		</dict>
-		<key>libs/icons/svg/jdFontCustom.index</key>
+		<key>libs/icons/svg/jdiconfontA.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vxndANdij0sDPiYHaulQ+3S3FQQ=
+			agKjM6DSKhIN7lr4IRQBTxzdbig=
 			</data>
 			<key>hash2</key>
 			<data>
-			eyDMgVsCZ1fllOPWUWupXAq4nFwnjuiZcygYQMwO1cY=
+			W26zxPyMEHyaOF0vR3ExmqgY6MkFFcRyRz1sD2ksNT0=
 			</data>
 		</dict>
-		<key>libs/icons/svg/jdFontCustom.mki</key>
+		<key>libs/icons/wireframe/charge.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Rpo9wKBLXOqTouYjg0BMCpgfgyk=
+			B6YLXt4rLCyzeGqbzne2UMLmxXk=
 			</data>
 			<key>hash2</key>
 			<data>
-			LL7UbPDTz/TztB8WIXg2UBJsaB4o0wKGOkvs2HCwSNY=
+			UITd6lqFQwYiwKvK1jboaAmFKrWVIks5uJGvTFRWhT4=
 			</data>
 		</dict>
-		<key>libs/icons/svg/jdFreeIcon.index</key>
+		<key>libs/icons/wireframe/free.mki2</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I8VQJymHTosTEvKMkacJOSnZ/DU=
+			7dgvcvCyp/AMbfRzIjmlTY04C3Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			x8D0/uFY1YBRf0a4Wo8UfAzOlRq5hbPeI7Ecn9dY4cs=
-			</data>
-		</dict>
-		<key>libs/icons/svg/jdFreeIcon.mki</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NqVNezn6qvyYxWc0IKwGaB+aV7Y=
-			</data>
-			<key>hash2</key>
-			<data>
-			5Ync5cMU+d1Poy/jHbUaH0Df/V/K8L5cquFqRPxJ9mA=
-			</data>
-		</dict>
-		<key>libs/icons/svg/jdIcoFont.index</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			eAlex3E9KKGICxGPFl1j5/5BfVI=
-			</data>
-			<key>hash2</key>
-			<data>
-			vVuPFkb3gNk6XV1Rn+I2TWPlVoXOvmmV+RIfUd/BvXI=
-			</data>
-		</dict>
-		<key>libs/icons/svg/jdIcoFont.mki</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JMaxBotYrWhQ/RuQt4u7to102pc=
-			</data>
-			<key>hash2</key>
-			<data>
-			BUn8NNdsl2MKKeYNY05rpuZ1ebgLTV4omjtdLASuo30=
-			</data>
-		</dict>
-		<key>libs/icons/svg/jdIcoMoonFree.index</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FfwttkDw75aqShrDKQ14hvSS1Ok=
-			</data>
-			<key>hash2</key>
-			<data>
-			OXcrBqBFMnZkHOk/WXrL9RtuNrCnMrVrdQWhUIewxxM=
-			</data>
-		</dict>
-		<key>libs/icons/svg/jdIcoMoonFree.mki</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3MHZ/qFEIo1ZDDVWCGon/Zdpdac=
-			</data>
-			<key>hash2</key>
-			<data>
-			Wkx1mvnP7UdOZJdQgAUgCLpGQqwYu8/I43HWVYm0810=
-			</data>
-		</dict>
-		<key>libs/icons/svg/jdiconfontA.index</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			f1HcT3Sk4vTYw83SHQvtP9chiMo=
-			</data>
-			<key>hash2</key>
-			<data>
-			fBM4+BcLDzSSeOXbMKAbMZ7inFTQhIwNFWJoGkvqbXc=
-			</data>
-		</dict>
-		<key>libs/icons/svg/jdiconfontA.mki</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uEyXG10zvUldJd6dDbLuvvpMJJ8=
-			</data>
-			<key>hash2</key>
-			<data>
-			DM3j/NKf2J3FsqNHnpCL9DaRcGFMqg0/s6HvxV1xorE=
-			</data>
-		</dict>
-		<key>libs/icons/wireframe/charge.index</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dKyuyzQmhOtVEDEfh1Od56OEeo0=
-			</data>
-			<key>hash2</key>
-			<data>
-			j49PFItEd/A3O4DqgfKkG9JK1b/9t5r9dwn41ZilND8=
-			</data>
-		</dict>
-		<key>libs/icons/wireframe/charge.mki</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Rx9Au1E72gN8JbW9G61mhk8Evzw=
-			</data>
-			<key>hash2</key>
-			<data>
-			MYg6OwTQdZbrEpFQspHBFOvgHXMrdiygCHFabdZsQFQ=
-			</data>
-		</dict>
-		<key>libs/icons/wireframe/free.index</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			HvUZzIHj1BxWlti4cV4V7rf7VZM=
-			</data>
-			<key>hash2</key>
-			<data>
-			C+6Y0RpZpqOZjDAfn0IUa6ArOjqyZz2HU3UcqFfGUyM=
-			</data>
-		</dict>
-		<key>libs/icons/wireframe/free.mki</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Tcori1V+ofs89Q8l1YjtVnj0ucw=
-			</data>
-			<key>hash2</key>
-			<data>
-			zQ28D+qxkvsWmGVMp8gUmOF3fM23UjF1npTsbr3khFs=
+			SeNhhk7MTWa26Y/t4MmoovA7AO0o0+bufBIxBxLdw+s=
 			</data>
 		</dict>
 	</dict>

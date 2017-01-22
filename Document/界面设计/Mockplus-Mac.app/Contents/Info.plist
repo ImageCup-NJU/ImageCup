@@ -70,7 +70,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.mockplus.desktop.chinese</string>
 	<key>CFBundleVersion</key>
-	<string>2.3.2</string>
+	<string>2.3.4</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
@@ -86,7 +86,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Mockplus.icns</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.3.2</string>
+	<string>2.3.4</string>
 	<key>ATSApplicationFontsPath</key>
 	<string>Fonts</string>
 </dict>
