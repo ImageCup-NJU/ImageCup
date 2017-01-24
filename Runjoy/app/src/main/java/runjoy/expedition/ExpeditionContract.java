@@ -22,7 +22,6 @@ public interface ExpeditionContract {
          */
         void showMap(Route route);
 
-
         /**
          * 历史已抵达的目标
          * @param city    历史跑步信息
@@ -33,5 +32,16 @@ public interface ExpeditionContract {
 
     interface Presenter extends BasePresenter {
 
+        /**
+         * 在到达目的地后设定新的目标
+         * @return 操作结果
+         */
+        boolean newCity(String city);
+
+        /**
+         * 更改当前的目的地
+         * @return 操作结果
+         */
+        boolean modifyCity(String city);
     }
 }

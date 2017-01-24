@@ -1,9 +1,10 @@
 package runjoy.running;
 
+import java.util.Map;
+
 import runjoy.BasePresenter;
 import runjoy.BaseView;
 import runjoy.data.RunInfo;
-
 /**
  * Created by JiachenWang on 2017/1/11.
  */
@@ -12,6 +13,11 @@ public interface RunningContract {
 
     interface View extends BaseView<Presenter> {
 
+        /**
+         * 自定义路线下用户跑步的地图
+         * @param passPoint     <经度,纬度>
+         */
+        void showMap(Map<Double,Double> passPoint);
 
         /**
          * 提示用户，“接受任务”，“拒绝任务”，“再跑两分钟再说”
@@ -48,7 +54,7 @@ public interface RunningContract {
     interface Presenter extends BasePresenter {
 
         /**
-         * 开始跑步,记录跑步路程，完成任务数量，如果是自由跑步，则根据跑步路程进行任务，如果是自定义跑步，则用户点击按钮进行任务
+         * 开始跑步,记录跑步路程，完成任务数量，如果是自由跑步，则根据跑步路程进行任务，如果是自定义跑步，则用户位置进行任务
          */
         void startRun();
 
