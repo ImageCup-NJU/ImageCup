@@ -1,5 +1,9 @@
 package runjoy.data;
 
+import android.text.format.Time;
+
+import java.util.Date;
+
 /**
  * Created by xiaomai on 2017/1/16.
  * 用户单次跑步的信息
@@ -22,14 +26,17 @@ public class RunInfo {
     //奖励信息(如：为到达目标地点缩短了多少距离，缩短了多少时间等)
     private String message;
 
-    public RunInfo(double distance,long time,int missionNum,double addDistance,String message){
+    //日期
+    private Date date;
+
+    public RunInfo(double distance,long time,int missionNum,double addDistance,String message,Date date){
         this.setDistance(distance);
         this.setTime(time);
         this.setMissionNum(missionNum);
         this.setAddDistance(addDistance);
         this.setMessage(message);
+        this.setDate(date);
     }
-
 
     public double getDistance() {
         return distance;
@@ -69,5 +76,13 @@ public class RunInfo {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

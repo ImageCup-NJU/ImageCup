@@ -2,27 +2,31 @@ package runjoy.homepage;
 
 import android.support.annotation.NonNull;
 
+import runjoy.data.Route;
+import runjoy.data.RunInfo;
 import runjoy.data.source.RouteDataSource;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * Created by lenovo on 2017/1/24.
+ * Created by xiaomai on 2017/1/24.
  */
 
 public class HomePagePresenter implements HomePageContract.Presenter {
 
     @NonNull
-    private final RouteDataSource mTouteDataSource;
+    private final RouteDataSource mRouteDataSource;
 
     @NonNull
     private final HomePageContract.View mHomePageView;
 
+    private RunInfo lastRunInfo;
+
+    private Route route;
+
     public HomePagePresenter(@NonNull RouteDataSource routeDataSource,@NonNull HomePageContract.View homePageView){
-
-        mTouteDataSource=checkNotNull(routeDataSource);
+        mRouteDataSource=checkNotNull(routeDataSource);
         mHomePageView=checkNotNull(homePageView);
-
     }
 
     @Override
@@ -32,6 +36,18 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
     //拿到数据，传到view
     public void showInfo(){
+        lastRunInfo=mRouteDataSource.getLastRun();
+        mRouteDataSource.getMyRoute(new RouteDataSource.GetRouteCallback(){
+            @Override
+            public void onRouteLoaded(Route mRoute) {
+                route=mRoute;
+            }
+            @Override
+            public void onDataNotAvailable() {
 
+            }
+        });
+        mHomePageView.showLastRun(lastRunInfo);
+        mHomePageView.showMyTrip(route);
     }
 }

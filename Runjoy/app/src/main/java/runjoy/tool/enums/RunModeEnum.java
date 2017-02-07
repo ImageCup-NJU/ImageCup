@@ -5,5 +5,5 @@ package runjoy.tool.enums;
  */
 
 public enum RunModeEnum {
-
+    FreeRun,DIYRun
 }

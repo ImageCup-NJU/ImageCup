@@ -6,6 +6,8 @@ package runjoy.data;
  */
 
 public class Route {
+
+    private String id;
     //出发地
     private String start;
 
@@ -21,14 +23,14 @@ public class Route {
     //已用时间(秒)
     private long time;
 
-    public Route(String start,String end,double allDistance,double distance,long time){
+    public Route(String id,String start,String end,double allDistance,double distance,long time){
+        this.setId(id);
         this.start=start;
         this.end=end;
         this.allDistance=allDistance;
         this.distance=distance;
         this.time=time;
     }
-
 
     public String getStart() {
         return start;
@@ -68,5 +70,13 @@ public class Route {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
