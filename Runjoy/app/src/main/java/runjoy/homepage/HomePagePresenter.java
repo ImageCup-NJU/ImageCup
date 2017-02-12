@@ -36,7 +36,18 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
     //拿到数据，传到view
     public void showInfo(){
-        lastRunInfo=mRouteDataSource.getLastRun();
+        mRouteDataSource.getLastRun(new RouteDataSource.GetRunCallback(){
+
+            @Override
+            public void onRunLoaded(RunInfo runInfo) {
+                lastRunInfo=runInfo;
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+
+            }
+        });
         mRouteDataSource.getMyRoute(new RouteDataSource.GetRouteCallback(){
             @Override
             public void onRouteLoaded(Route mRoute) {

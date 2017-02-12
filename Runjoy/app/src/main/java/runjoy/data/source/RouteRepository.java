@@ -14,8 +14,8 @@ public class RouteRepository implements RouteDataSource{
 
 
     @Override
-    public RunInfo getLastRun() {
-        return null;
+    public void getLastRun(@NonNull GetRunCallback callback) {
+
     }
 
     @Override
