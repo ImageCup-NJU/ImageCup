@@ -37,7 +37,7 @@
                     android:id="@+id/freeRunButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/free_run_button"
+                    android:src="@drawable/button_freerun"
                     android:layout_gravity="center"
                     android:background="#00000000"/>
             </FrameLayout>
@@ -61,7 +61,7 @@
                     android:id="@+id/userRunButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/sel_run_button"
+                    android:src="@drawable/button_selfrun"
                     android:layout_gravity="center"
                     android:background="#00000000"/>
             </FrameLayout>

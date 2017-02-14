@@ -28,7 +28,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/leftgo"
+                android:src="@drawable/button_leftgo"
                 android:layout_gravity="left"
                 android:scaleType="fitStart"
                 android:layout_marginLeft="15dp"
@@ -98,7 +98,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/mail"
+                        android:src="@drawable/logo_mail"
                         android:scaleType="centerInside" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/choice"
+                    android:src="@drawable/button_rightgo"
                     android:layout_gravity="right"
                     android:scaleType="fitEnd"
                     android:layout_marginRight="15dp"
@@ -156,7 +156,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/phone"
+                        android:src="@drawable/logo_phone"
                         android:scaleType="centerInside" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/choice"
+                    android:src="@drawable/button_rightgo"
                     android:layout_gravity="right"
                     android:scaleType="fitEnd"
                     android:layout_marginRight="15dp"
@@ -214,7 +214,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/password"
+                        android:src="@drawable/logo_password"
                         android:scaleType="centerInside" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -229,7 +229,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/choice"
+                    android:src="@drawable/button_rightgo"
                     android:layout_gravity="right"
                     android:scaleType="fitEnd"
                     android:layout_marginRight="15dp"
@@ -272,7 +272,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/distance"
+                        android:src="@drawable/logo_distance"
                         android:scaleType="centerInside" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -287,7 +287,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/choice"
+                    android:src="@drawable/button_rightgo"
                     android:layout_gravity="right"
                     android:scaleType="fitEnd"
                     android:layout_marginRight="15dp"
@@ -330,7 +330,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/logout"
+                        android:src="@drawable/logo_logout"
                         android:scaleType="centerInside" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -345,7 +345,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/choice"
+                    android:src="@drawable/button_rightgo"
                     android:layout_gravity="right"
                     android:scaleType="fitEnd"
                     android:layout_marginRight="15dp"

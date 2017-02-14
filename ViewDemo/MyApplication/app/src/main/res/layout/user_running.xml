@@ -160,7 +160,7 @@
                             android:id="@+id/timelogo"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/timelogo"
+                            android:src="@drawable/logo_runtime"
                             android:layout_marginLeft="0dp"
                             android:scaleType="centerInside"/>
 
@@ -194,7 +194,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
-                            android:src="@drawable/missionlogo"
+                            android:src="@drawable/logo_missionnum"
                             android:layout_marginLeft="0dp"
                             android:scaleType="fitCenter"/>
 
@@ -253,7 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:src="@drawable/stopbutton"
+                android:src="@drawable/button_stoprun"
                 android:background="#00000000"/>
         </LinearLayout>
 

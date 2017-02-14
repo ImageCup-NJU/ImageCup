@@ -66,7 +66,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/missionpanellogo"
+                    android:src="@drawable/logo_missionpanel"
                     android:scaleType="centerInside"/>
 
             </LinearLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -18,7 +19,7 @@ public class homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
 
         final LinearLayout l2 = (LinearLayout) findViewById(R.id.hompage2_layout);
-        final LinearLayout l1 = (LinearLayout) findViewById(R.id.hompage1_layout);
+        final FrameLayout l1 = (FrameLayout) findViewById(R.id.hompage1_layout);
         l2.setVisibility(View.GONE);
 
         Button runButton = (Button) findViewById(R.id.runButton);

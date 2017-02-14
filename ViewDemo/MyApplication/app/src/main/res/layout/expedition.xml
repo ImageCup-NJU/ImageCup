@@ -41,7 +41,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/leftgo"
+                        android:src="@drawable/button_leftgo"
                         android:layout_gravity="left"
                         android:scaleType="fitStart"
                         android:layout_marginLeft="15dp"
@@ -65,7 +65,7 @@
                         android:id="@+id/changeAimButton"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/changeaimbutton"
+                        android:src="@drawable/button_changeaim"
                         android:background="#00000000"
                         android:layout_alignParentRight="true"
                         android:scaleType="fitCenter"/>
@@ -74,7 +74,7 @@
                         android:id="@+id/historyButton"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/historybutton"
+                        android:src="@drawable/button_history"
                         android:background="#00000000"
                         android:layout_marginRight="-15dp"
                         android:layout_toLeftOf="@id/changeAimButton"
@@ -107,10 +107,10 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/start_end2"
+                android:src="@drawable/pic_start_end"
                 android:scaleType="fitCenter"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
         </RelativeLayout>
     </LinearLayout>
 

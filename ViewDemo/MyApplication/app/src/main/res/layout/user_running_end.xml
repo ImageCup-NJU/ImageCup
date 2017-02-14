@@ -137,7 +137,7 @@
                             android:id="@+id/timelogo"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/timelogo"
+                            android:src="@drawable/logo_runtime"
                             android:layout_marginLeft="0dp"
                             android:scaleType="centerInside"/>
 
@@ -178,7 +178,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
-                            android:src="@drawable/missionlogo"
+                            android:src="@drawable/logo_missionnum"
                             android:layout_marginLeft="0dp"
                             android:scaleType="fitCenter"/>
 
@@ -221,7 +221,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/endlogo"
+                    android:src="@drawable/logo_end"
                     android:scaleType="fitStart"
                     android:layout_marginLeft="30dp"/>
 
@@ -301,7 +301,9 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/start_end2"
+                        android:src="@drawable/pic_start_end"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:scaleType="fitCenter"/>
                 </LinearLayout>
 
