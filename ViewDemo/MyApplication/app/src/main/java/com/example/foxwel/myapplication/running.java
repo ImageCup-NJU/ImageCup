@@ -114,7 +114,7 @@ public class running extends AppCompatActivity {
         userShowInDistanceButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(running.this,homepage.class);
+                Intent intent = new Intent(running.this,expedition.class);
                 startActivity(intent);
             }
         });

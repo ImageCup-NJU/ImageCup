@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="21"
+            android:layout_weight="21.2"
             android:orientation="vertical">
 
 
@@ -52,17 +52,51 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2">
+                android:layout_weight="1">
 
-                <TextView
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:background="@color/colorHomepagePanel">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="欢迎回来！"
-                    android:textSize="35dp"
-                    android:layout_gravity="center"
-                    android:textColor="#6699FF"
-                    android:layout_margin="10dp"/>
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/person"
+                        android:scaleType="fitCenter"
+                        android:layout_margin="8dp"
+                        android:layout_marginLeft="15dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="Foxwel"
+                            android:textSize="20dp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginBottom="8dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="已坚持运动19天！"
+                            android:textSize="15dp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginLeft="5dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -85,7 +119,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="6"
+                    android:layout_weight="5"
                     android:scaleType="fitStart"
                     android:src="@drawable/logo_homepage_today"
                     android:layout_marginLeft="10dp"/>
@@ -93,13 +127,13 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="2"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:background="@color/colorHomepagePanel"
                 android:orientation="vertical">
 
@@ -269,7 +303,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:scaleType="fitStart"
                         android:src="@drawable/logo_homepage_ar"
                         android:layout_marginLeft="10dp"/>
@@ -311,7 +345,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="6"
+                    android:layout_weight="5"
                     android:scaleType="fitStart"
                     android:src="@drawable/logo_homepage_mydistance"
                     android:layout_marginLeft="10dp"/>
@@ -319,7 +353,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="2"/>
             </LinearLayout>
 
             <LinearLayout
@@ -341,7 +375,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="1.8"
+            android:background="@color/colorHomepagePanel">
 
         </LinearLayout>
 

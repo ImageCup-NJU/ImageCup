@@ -58,6 +58,7 @@ public class homepage extends AppCompatActivity {
             }
         });
 
+
         ImageButton freeRunButton = (ImageButton) findViewById(R.id.freeRunButton);
         ImageButton userRunButton = (ImageButton) findViewById(R.id.userRunButton);
 

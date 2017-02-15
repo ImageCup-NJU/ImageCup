@@ -22,5 +22,14 @@ public class setting extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button homepageButton = (Button) findViewById(R.id.homepageButton);
+        homepageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(setting.this,homepage.class);
+                startActivity(intent);
+            }
+        });
     }
 }
