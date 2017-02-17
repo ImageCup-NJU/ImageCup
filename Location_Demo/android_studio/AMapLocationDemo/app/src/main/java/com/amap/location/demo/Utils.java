@@ -38,6 +38,9 @@ public class Utils {
     public final static String KEY_URL = "URL";
     public final static String URL_H5LOCATION = "file:///android_asset/location.html";
 
+    private static SimpleDateFormat sdf = null;
+    private static java.text.DecimalFormat diatanceFormat = new java.text.DecimalFormat("#.00");
+
     /**
      * 根据定位结果返回定位信息的字符串
      *
@@ -90,14 +93,19 @@ public class Utils {
      *
      * @param start 出发点
      * @param end   到达点
-     * @return
+     * @return 米为单位的距离
      */
     public synchronized static double getDistance(LatLng start, LatLng end) {
-        return (double) AMapUtils.calculateLineDistance(start,end);
+        return (double) AMapUtils.calculateLineDistance(start, end);
     }
 
-    private static SimpleDateFormat sdf = null;
-
+    /**
+     * 时间规范化格式
+     *
+     * @param l
+     * @param strPattern
+     * @return
+     */
     public synchronized static String formatUTC(long l, String strPattern) {
         if (TextUtils.isEmpty(strPattern)) {
             strPattern = "yyyy-MM-dd HH:mm:ss";
@@ -113,7 +121,20 @@ public class Utils {
         return sdf == null ? "NULL" : sdf.format(l);
     }
 
+    /**
+     * 地理信息转经纬度信息
+     *
+     * @param loc
+     * @return
+     */
     public synchronized static LatLng formatLatLng(AMapLocation loc) {
         return new LatLng(loc.getLatitude(), loc.getLongitude());
+    }
+
+    public synchronized static String formatDistance(double meters) {
+
+        double result = meters / 1000.0;
+
+        return diatanceFormat.format(result) + "";
     }
 }

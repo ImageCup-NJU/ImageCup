@@ -13,4 +13,5 @@ public interface LocationListener {
      * @param loc 改变的位置信息
      */
     public void moveLocation(AMapLocation loc);
+
 }

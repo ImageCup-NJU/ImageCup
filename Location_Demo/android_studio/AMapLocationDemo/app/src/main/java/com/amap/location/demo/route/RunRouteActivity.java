@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by JiachenWang on 2017/1/28.
  */
-public class RunRouteActivity extends Activity implements LocationListener{
+public class RunRouteActivity extends Activity implements LocationListener {
 
     private LocationController locationController;
 
@@ -65,16 +65,17 @@ public class RunRouteActivity extends Activity implements LocationListener{
 
     /**
      * 位置信息改变，设备移动
+     *
      * @param loc 改变的位置信息
      */
     @Override
     public void moveLocation(AMapLocation loc) {
-        if (null != loc) {
+        LatLng current = Utils.formatLatLng(loc);
+        if (null != loc && !locationController.inJitter(lastLoc, current)) {
             //定位结果转换
-            LatLng current = Utils.formatLatLng(loc);
             aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 17));
             addNewLine(current);
-            addDistance(Utils.getDistance(lastLoc, Utils.formatLatLng(loc)));
+            addDistance(Utils.getDistance(lastLoc, current));
             updateLastLoc(current);
         } else {
             Log.d("LogDemo", "定位失败！");
@@ -114,18 +115,19 @@ public class RunRouteActivity extends Activity implements LocationListener{
     /**
      * 距离信息更新
      */
-    private void addDistance(double newDistance){
+    private void addDistance(double newDistance) {
 //        info_text.setText(++count);
         distance = distance + newDistance;
-        //TODO，界面有点问题还
-        setTitle(distance + "");
+        //TODO，现扔在标题
+        setTitle(Utils.formatDistance(distance) + " Km");
     }
 
     /**
      * 更新变量lastLoc
+     *
      * @param loc
      */
-    private void updateLastLoc(LatLng loc){
+    private void updateLastLoc(LatLng loc) {
         lastLoc = loc;
     }
 

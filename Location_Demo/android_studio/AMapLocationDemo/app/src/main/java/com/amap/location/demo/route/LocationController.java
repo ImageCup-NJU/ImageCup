@@ -7,11 +7,13 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.amap.api.maps.model.LatLng;
+import com.amap.location.demo.Utils;
 
 /**
  * Created by JiachenWang on 2017/2/1.
  */
-public class LocationController {
+public class LocationController implements LocationControlService {
 
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = new AMapLocationClientOption();
@@ -23,7 +25,7 @@ public class LocationController {
         this.context = context;
         this.locationListener = locationListener;
         //初始化定位
-        if (context!=null){
+        if (context != null) {
             initLocation();
         }
 
@@ -31,9 +33,9 @@ public class LocationController {
 
     /**
      * 初始化定位
-     *
      */
-    private void initLocation() {
+    @Override
+    public void initLocation() {
         //初始化client
         locationClient = new AMapLocationClient(context);
         //设置定位参数
@@ -48,15 +50,32 @@ public class LocationController {
     AMapLocationListener aMaplocationListener = new AMapLocationListener() {
         @Override
         public void onLocationChanged(AMapLocation loc) {
-            //TODO，抖动处理
+            //要求Activity处理新的定位信息
             locationListener.moveLocation(loc);
         }
     };
 
     /**
+     * 是否在抖动范围内（即可以忽视的位置更改）
+     *
+     * @param lastLoc 上一个有效位置点
+     * @param newLoc  定位到的新位置（不确定是否有效）
+     * @return
+     */
+    @Override
+    public boolean inJitter(LatLng lastLoc, LatLng newLoc) {
+        double diatance = Utils.getDistance(lastLoc, newLoc);
+        if (diatance < 10.0)
+            return true;
+        else
+            return false;
+    }
+
+    /**
      * 默认的定位参数
      */
-    private AMapLocationClientOption getDefaultOption() {
+    @Override
+    public AMapLocationClientOption getDefaultOption() {
         AMapLocationClientOption mOption = new AMapLocationClientOption();
         mOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);//可选，设置定位模式，可选的模式有高精度、仅设备、仅网络。默认为高精度模式
         mOption.setGpsFirst(false);//可选，设置是否gps优先，只在高精度模式下有效。默认关闭
@@ -75,7 +94,8 @@ public class LocationController {
     /**
      * 开始定位
      */
-    protected void startLocation() {
+    @Override
+    public void startLocation() {
         // 设置定位参数
         locationClient.setLocationOption(locationOption);
         // 启动定位
@@ -85,14 +105,16 @@ public class LocationController {
     /**
      * 停止定位
      */
-    protected void stopLocation() {
+    @Override
+    public void stopLocation() {
         locationClient.stopLocation();
     }
 
     /**
      * 销毁定位
      */
-    protected void destroyLocation() {
+    @Override
+    public void destroyLocation() {
         if (null != locationClient) {
             /**
              * 如果AMapLocationClient是在当前Activity实例化的，
