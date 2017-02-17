@@ -134,7 +134,6 @@ public class Utils {
     public synchronized static String formatDistance(double meters) {
 
         double result = meters / 1000.0;
-
-        return diatanceFormat.format(result) + "";
+        return String.format("%.2f", result);
     }
 }

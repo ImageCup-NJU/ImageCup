@@ -42,6 +42,7 @@ public class RunRouteActivity extends Activity implements LocationListener {
         mapView.onCreate(savedInstanceState);// 此方法必须重写
 
         initial();
+        setTitle("运动距离:" + Utils.formatDistance(distance) + " Km");
         locationController.startLocation();
     }
 
@@ -70,7 +71,13 @@ public class RunRouteActivity extends Activity implements LocationListener {
      */
     @Override
     public void moveLocation(AMapLocation loc) {
+
         LatLng current = Utils.formatLatLng(loc);
+        if (lastLoc == null) {
+            lastLoc = current;
+            aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLoc, 17));
+            return;
+        }
         if (null != loc && !locationController.inJitter(lastLoc, current)) {
             //定位结果转换
             aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 17));
@@ -78,7 +85,7 @@ public class RunRouteActivity extends Activity implements LocationListener {
             addDistance(Utils.getDistance(lastLoc, current));
             updateLastLoc(current);
         } else {
-            Log.d("LogDemo", "定位失败！");
+            Log.d("LogDemo", "无效位置！");
         }
     }
 
@@ -119,7 +126,7 @@ public class RunRouteActivity extends Activity implements LocationListener {
 //        info_text.setText(++count);
         distance = distance + newDistance;
         //TODO，现扔在标题
-        setTitle(Utils.formatDistance(distance) + " Km");
+        setTitle("运动距离:" + Utils.formatDistance(distance) + " Km");
     }
 
     /**
