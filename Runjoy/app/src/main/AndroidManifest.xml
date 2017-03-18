@@ -16,7 +16,7 @@
   -->
 
 <manifest
-    package="com.example.android.architecture.blueprints.todoapp"
+    package="runjoy"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Normal Permissions 不需要运行时注册 -->
@@ -73,16 +73,12 @@
         </service>
 
         <activity
-                android:name="com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity"
-                android:theme="@style/AppTheme.OverlapSystemBar">
+                android:name="runjoy.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailActivity" />
-        <activity android:name="com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTaskActivity" />
-        <activity android:name="com.example.android.architecture.blueprints.todoapp.statistics.StatisticsActivity" />
     </application>
 
 </manifest>

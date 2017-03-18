@@ -20,7 +20,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.android.architecture.blueprints.todoapp.data.source.local.TasksPersistenceContract;
 
 public class RouteDbHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;

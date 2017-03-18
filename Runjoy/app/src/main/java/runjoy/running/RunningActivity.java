@@ -11,7 +11,6 @@ import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.PolylineOptions;
-import com.example.android.architecture.blueprints.todoapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.List;
 import runjoy.running.location.LocationController;
 import runjoy.running.location.LocationListener;
 import runjoy.tool.Utils;
-
+import runjoy.R;
 /**
  * Created by JiachenWang on 2017/1/28.
  */
