@@ -8,17 +8,9 @@ import android.support.annotation.NonNull;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
-    private LoginContract.View mLoginView;
-
-    public LoginPresenter(@NonNull LoginContract.View loginView) {
-        mLoginView = loginView;
-        mLoginView.setPresenter(this);
-    }
-
     @Override
     public boolean checkAccount(String username, String password) {
-        mLoginView.showLoadingIndicator();
-        return true;
+        return false;
     }
 
     @Override

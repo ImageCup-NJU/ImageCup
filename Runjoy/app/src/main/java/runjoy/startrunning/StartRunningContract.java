@@ -8,7 +8,7 @@ import runjoy.tool.enums.RunModeEnum;
  * Created by JiachenWang on 2017/1/11.
  */
 
-public interface StratRunningContract {
+public interface StartRunningContract {
 
     interface View extends BaseView<Presenter> {
 

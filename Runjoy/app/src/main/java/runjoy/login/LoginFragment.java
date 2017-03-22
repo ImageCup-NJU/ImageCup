@@ -1,6 +1,7 @@
 package runjoy.login;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,14 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import runjoy.R;
+import runjoy.homepage.HomePageActivity;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class LoginFragment extends Fragment implements LoginContract.View {
 
     private LoginContract.Presenter mPresenter;
@@ -36,20 +36,24 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button b1 = (Button) getActivity().findViewById(R.id.loginButton);
-        final TextView t1 = (TextView) getActivity().findViewById(R.id.username);
-        b1.setOnClickListener(new View.OnClickListener() {
+        Button btn_login = (Button) getActivity().findViewById(R.id.btn_login);
+        final EditText edtTxt_userName = (EditText) getActivity().findViewById(R.id.edtTxt_userName);
+        final EditText edtTxt_passWord = (EditText) getActivity().findViewById(R.id.edtTxt_passWord);
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.checkAccount("1","1");
+                boolean loginResult = mPresenter.checkAccount(edtTxt_userName.toString(), edtTxt_passWord.toString());
+                if (loginResult) {
+                    Intent intent = new Intent(getActivity(), HomePageActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
 
     @Override
     public void showLoadingIndicator() {
-        final TextView t1 = (TextView) getActivity().findViewById(R.id.username);
-        t1.setText("hahahah111");
+        Toast.makeText(getActivity().getApplicationContext(), "用户名或密码错误",Toast.LENGTH_SHORT).show();
     }
 
     @Override

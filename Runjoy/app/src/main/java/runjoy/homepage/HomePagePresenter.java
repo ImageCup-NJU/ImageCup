@@ -27,6 +27,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     public HomePagePresenter(@NonNull RouteDataSource routeDataSource,@NonNull HomePageContract.View homePageView){
         mRouteDataSource=checkNotNull(routeDataSource);
         mHomePageView=checkNotNull(homePageView);
+        homePageView.setPresenter(this);
     }
 
     @Override

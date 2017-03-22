@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/test"
+    android:id="@+id/layout_login_frag"
     android:fitsSystemWindows="true" >
 
     <RelativeLayout
@@ -30,7 +30,7 @@
                 android:layout_margin="10dp"/>
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/edtTxt_userName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
@@ -40,16 +40,18 @@
                 android:hint="用户名"/>
 
             <EditText
+                android:id="@+id/edtTxt_passWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:textSize="12sp"
                 android:maxLines="1"
                 android:layout_margin="8dp"
+                android:inputType="textPassword"
                 android:hint="密码"/>
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="登录"
@@ -58,7 +60,7 @@
                 android:textColor="#FFFFFF"
                 android:background="@drawable/login_button"/>
             <Button
-                android:id="@+id/registerButton"
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="我还没有账号"
