@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mission"
+    android:id="@+id/layout_running_frag_mission"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6A000000"
@@ -133,7 +133,7 @@
                     android:layout_weight="4">
 
                     <Button
-                        android:id="@+id/acceptButton"
+                        android:id="@+id/btn_acceptMission"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="接受任务"
@@ -159,7 +159,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/cancelButton"
+                        android:id="@+id/btn_cancelMission"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -172,7 +172,7 @@
                         />
 
                     <Button
-                        android:id="@+id/waitButton"
+                        android:id="@+id/btn_waitMission"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

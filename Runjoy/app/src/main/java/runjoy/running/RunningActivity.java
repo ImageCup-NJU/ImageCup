@@ -3,7 +3,11 @@ package runjoy.running;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
@@ -17,18 +21,22 @@ import java.util.List;
 
 import runjoy.running.location.LocationController;
 import runjoy.running.location.LocationListener;
+import runjoy.startrunning.StartRunningFragment;
+import runjoy.startrunning.StartRunningPresenter_stub;
 import runjoy.tool.Utils;
 import runjoy.R;
+import runjoy.util.ActivityUtils;
+
 /**
  * Created by JiachenWang on 2017/1/28.
  */
-public class RunningActivity extends Activity implements LocationListener {
+public class RunningActivity extends AppCompatActivity implements LocationListener{
 
     private LocationController locationController;
 
     private AMap aMap;
+
     private MapView mapView;
-//    private TextView info_text;
 
     private LatLng lastLoc = null;
 
@@ -39,9 +47,17 @@ public class RunningActivity extends Activity implements LocationListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.running_act);
 
+        RunningFragment runningFragment = (RunningFragment) getSupportFragmentManager().findFragmentById(R.id.layout_running_content);
+
+        if (runningFragment == null) {
+            runningFragment = runningFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), runningFragment, R.id.layout_running_content);
+        }
+        new RunningPresenter_stub(runningFragment);
+
+
         mapView = (MapView) findViewById(R.id.map);
-//        info_text = (TextView) findViewById(R.id.info_text);
-        mapView.onCreate(savedInstanceState);// 此方法必须重写
+        mapView.onCreate(savedInstanceState);
 
         initial();
         locationController.startLocation();

@@ -10,7 +10,7 @@ import runjoy.login.LoginContract;
  */
 
 public interface RegisterContract {
-    interface View extends BaseView<LoginContract.Presenter> {
+    interface View extends BaseView<Presenter> {
 
 
         // TODO: 2017/1/11

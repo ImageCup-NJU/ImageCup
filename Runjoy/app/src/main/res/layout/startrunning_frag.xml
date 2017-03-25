@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageButton
-                    android:id="@+id/freeRunButton"
+                    android:id="@+id/btn_freeRun"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/button_freerun"
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageButton
-                    android:id="@+id/userRunButton"
+                    android:id="@+id/btn_DIYRun"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/button_selfrun"

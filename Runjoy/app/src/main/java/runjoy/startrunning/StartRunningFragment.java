@@ -9,13 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import runjoy.R;
-import runjoy.data.Route;
-import runjoy.data.RunInfo;
-import runjoy.homepage.HomePageActivity;
-import runjoy.homepage.HomePageContract;
+import runjoy.running.RunningActivity;
+import runjoy.tool.enums.RunModeEnum;
 
 
 public class StartRunningFragment extends Fragment implements StartRunningContract.View {
@@ -37,12 +35,28 @@ public class StartRunningFragment extends Fragment implements StartRunningContra
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         final Button btn_cancelRun = (Button) getActivity().findViewById(R.id.btn_cancelRun);
+        final ImageButton btn_DIYRun = (ImageButton) getActivity().findViewById(R.id.btn_DIYRun);
+        final ImageButton btn_freeRun = (ImageButton) getActivity().findViewById(R.id.btn_freeRun);
         btn_cancelRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_cancelRun.setVisibility(View.GONE);
-                Intent intent = new Intent(getActivity(), HomePageActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+            }
+        });
+
+        btn_DIYRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.selectMode(RunModeEnum.DIYRun);
+            }
+        });
+
+        btn_freeRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.selectMode(RunModeEnum.FreeRun);
+                getActivity().finish();
+                Intent intent = new Intent(getActivity(), RunningActivity.class);
                 startActivity(intent);
             }
         });
