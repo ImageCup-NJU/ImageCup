@@ -24,8 +24,9 @@ public interface RunningContract {
 
         /**
          * 提示用户，“接受任务”，“拒绝任务”，“再跑两分钟再说”
+         * @param missionInfo    任务描述
          */
-        void showMessageDialog();
+        void showMessageDialog(String missionInfo);
 
         /**
          * 进入AR游戏，暂停跑步时间
@@ -69,8 +70,9 @@ public interface RunningContract {
 
         /**
          * 结束跑步，显示本次跑步时间，路程，完成的任务数量，为到达目标地点增加了多少距离，并且更新与目标地点的距离和花费时间
+         * @param useTime    用户跑步用时
          */
-        void endRun();
+        void endRun(Long useTime);
 
         /**
          * 延时两分钟再通知用户，即延时两分钟再调用showMessageDialog
