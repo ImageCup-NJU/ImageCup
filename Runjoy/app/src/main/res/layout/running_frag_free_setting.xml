@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_running_frag_mission"
+    android:id="@+id/layout_running_frag_free_setting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6A000000"
@@ -31,7 +31,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="10">
+                android:layout_weight="9">
 
                 <ImageView
                         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="6">
+                android:layout_weight="7">
             </LinearLayout>
 
         </LinearLayout>
@@ -74,8 +74,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="9"
+                android:layout_weight="8"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8">
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,11 +91,17 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="新任务"
+                        android:text="提示"
                         android:gravity="center"
                         android:textSize="20dp"
                         android:textColor="#000000"/>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8">
                 </LinearLayout>
 
                 <LinearLayout
@@ -106,21 +118,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="10">
-
-                    <TextView
-                        android:id="@+id/tv_missionInfo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="前方有一只小猫已经三天没有吃东西了，正眼巴巴地望着你给它喂食，它心满意足地吃饱以后，可以为你的行程增加贡献哦！"
-                        android:gravity="top"
-                        android:textSize="16dp"
-                        android:textColor="#666666"
-                        android:layout_gravity="top"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="5dp"/>
+                    android:layout_weight="0.8">
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6"
+                    android:text="大约每1.5公里有一定概率出现任务"
+                    android:gravity="top"
+                    android:textSize="20dp"
+                    android:textColor="#666666"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -131,59 +143,67 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="4">
+                    android:layout_weight="5">
 
                     <Button
-                        android:id="@+id/btn_acceptMission"
+                        android:id="@+id/btn_accpetFreeRunningSetting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="接受任务"
+                        android:text="开始跑步"
                         android:textSize="15dp"
                         android:textColor="#FF007E"
                         android:background="@drawable/accept_button"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        />
+                        android:layout_marginRight="20dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.5">
+                    android:layout_weight="1">
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_cancelMission"
-                        android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="拒绝任务"
-                        android:textSize="15dp"
-                        android:textColor="#999999"
-                        android:background="@drawable/reaccept_button"
+                        android:text="我想修改为"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textColor="#666666"
+                        android:layout_gravity="bottom"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginRight="5dp"
-                        />
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="5dp"/>
 
-                    <Button
-                        android:id="@+id/btn_waitMission"
-                        android:layout_width="0dp"
+                    <Spinner
+                        android:id="@+id/sp_userFreeSetting"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="再跑两分钟"
-                        android:textSize="15dp"
-                        android:textColor="#999999"
-                        android:background="@drawable/reaccept_button"
-                        android:layout_marginLeft="5dp"
+                        android:entries="@array/distance">
+
+                    </Spinner>
+
+                    <TextView
+                        android:layout_marginLeft="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="公里"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textColor="#666666"
+                        android:layout_gravity="bottom"
                         android:layout_marginRight="20dp"
-                        />
+                        android:layout_marginTop="5dp"/>
+
 
                 </LinearLayout>
 
@@ -198,7 +218,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="6"></LinearLayout>
+                android:layout_weight="7"></LinearLayout>
 
         </LinearLayout>
 

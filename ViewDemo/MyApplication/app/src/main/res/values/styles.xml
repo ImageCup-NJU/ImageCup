@@ -27,4 +27,8 @@
     </style>
 
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="spinnerItemStyle">
+        <item name="android:textSize">50dp</item>
+    </style>
 </resources>

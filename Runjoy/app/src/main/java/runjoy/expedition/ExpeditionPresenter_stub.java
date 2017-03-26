@@ -2,6 +2,12 @@ package runjoy.expedition;
 
 import android.support.annotation.NonNull;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import runjoy.data.City;
 import runjoy.startrunning.StartRunningContract;
 import runjoy.tool.enums.RunModeEnum;
 
@@ -25,7 +31,14 @@ public class ExpeditionPresenter_stub implements ExpeditionContract.Presenter{
 
     @Override
     public void start() {
-
+        Map<String, String> map = new HashMap<>();
+        map.put("南京","杭州");
+        map.put("南京","天津");
+        List<Long> list = new ArrayList<>();
+        list.add(Long.valueOf(57));
+        list.add(Long.valueOf(78));
+        City city = new City(map, list);
+        mExpeditionView.showHistory(city);
     }
 
     @Override

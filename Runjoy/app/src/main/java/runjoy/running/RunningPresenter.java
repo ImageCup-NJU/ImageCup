@@ -41,7 +41,7 @@ public class RunningPresenter implements RunningContract.Presenter {
     }
 
     @Override
-    public void endRun() {
+    public void endRun(Long useTime) {
 
     }
 
