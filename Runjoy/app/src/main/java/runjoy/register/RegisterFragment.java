@@ -64,7 +64,11 @@ public class RegisterFragment extends Fragment implements RegisterContract.View{
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Account account = new Account();
+                String userName = edtTxt_userName.getText().toString();
+
+                String userEmail = edtTxt_email.getText().toString();
+
+                Account account = new Account(userName, 0, 0, 0.5, userEmail);
 
                 boolean registerResult = mPresenter.isAccountAvailable(edtTxt_userName.getText().toString());
 

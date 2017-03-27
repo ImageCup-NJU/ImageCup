@@ -30,7 +30,7 @@ public class RoutesRepositoryTest {
     @Before
     public void setupRoutesRepository() {
         MockitoAnnotations.initMocks(this);
-        //routeDataSource=RoutesLocalDataSource.getInstance(mContext);
+        routeDataSource=RoutesLocalDataSource.getInstance(mContext);
     }
 
     @Test

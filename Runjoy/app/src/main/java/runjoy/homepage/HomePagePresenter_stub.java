@@ -42,7 +42,7 @@ public class HomePagePresenter_stub implements HomePageContract.Presenter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Route route = new Route("1","南京","北京",114,20,155525);
+        Route route = new Route(1, "南京","北京", 114, 20, 155525, 0);
         mHomePageView.showLastRun(runInfo);
         mHomePageView.showMyTrip(route);
     }

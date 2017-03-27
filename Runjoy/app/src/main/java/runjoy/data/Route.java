@@ -1,5 +1,7 @@
 package runjoy.data;
 
+import android.content.Intent;
+
 /**
  * Created by xiaomai on 2017/1/14.
  * 用户当前跑的线路信息以及当前状态
@@ -7,7 +9,7 @@ package runjoy.data;
 
 public class Route {
 
-    private String id;
+    private Integer id;
     //出发地
     private String start;
 
@@ -23,13 +25,25 @@ public class Route {
     //已用时间(秒)
     private long time;
 
-    public Route(String id,String start,String end,double allDistance,double distance,long time){
-        this.setId(id);
+    //是否完成
+    private int ifComplete;
+
+    public Route(Integer id, String start,String end,double allDistance,double distance,long time,int ifComplete){
+        this.id=id;
         this.start=start;
         this.end=end;
         this.allDistance=allDistance;
         this.distance=distance;
         this.time=time;
+        this.ifComplete=ifComplete;
+    }
+
+    public int getIfComplete() {
+        return ifComplete;
+    }
+
+    public void setIfComplete(int ifComplete) {
+        this.ifComplete = ifComplete;
     }
 
     public String getStart() {
@@ -72,11 +86,11 @@ public class Route {
         this.time = time;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

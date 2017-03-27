@@ -109,6 +109,7 @@
                     android:layout_weight="10">
 
                     <TextView
+                        android:id="@+id/tv_missionInfo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="前方有一只小猫已经三天没有吃东西了，正眼巴巴地望着你给它喂食，它心满意足地吃饱以后，可以为你的行程增加贡献哦！"
