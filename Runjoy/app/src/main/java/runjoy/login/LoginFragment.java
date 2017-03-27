@@ -58,7 +58,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
             public void onClick(View v) {
                 boolean loginResult = mPresenter.checkAccount(edtTxt_userName.getText().toString(), edtTxt_passWord.getText().toString());
                 if (loginResult) {
-
+                    getActivity().finish();
                     Intent intent = new Intent(getActivity(), HomePageActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

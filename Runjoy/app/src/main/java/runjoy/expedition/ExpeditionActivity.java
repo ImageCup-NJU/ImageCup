@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import runjoy.R;
 import runjoy.homepage.HomePageActivity;
+import runjoy.settings.SettingsActivity;
 import runjoy.startrunning.StartRunningActivity;
 import runjoy.util.ActivityUtils;
 
@@ -39,9 +40,19 @@ public class ExpeditionActivity extends AppCompatActivity {
         btn_navibar_homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 Intent intent = new Intent(ExpeditionActivity.this, HomePageActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        Button btn_navibar_setting = (Button) findViewById(R.id.btn_navibar_setting);
+        btn_navibar_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ExpeditionActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

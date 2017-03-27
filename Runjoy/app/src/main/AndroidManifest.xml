@@ -99,6 +99,10 @@
         <activity
             android:name=".running.RunningActivity">
         </activity>
+
+        <activity
+            android:name=".settings.SettingsActivity">
+        </activity>
     </application>
 
 </manifest>
