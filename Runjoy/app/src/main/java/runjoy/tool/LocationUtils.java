@@ -18,10 +18,10 @@ import java.util.Locale;
  * @author hongming.wang
  * @创建时间： 2015年11月24日 上午11:46:50
  * @项目名称： AMapLocationDemo2.x
- * @文件名称: Utils.java
- * @类型名称: Utils
+ * @文件名称: LocationUtils.java
+ * @类型名称: LocationUtils
  */
-public class Utils {
+public class LocationUtils {
     /**
      * 开始定位
      */
@@ -93,11 +93,17 @@ public class Utils {
      * @return
      */
     public synchronized static double getDistance(LatLng start, LatLng end) {
-        return (double) AMapUtils.calculateLineDistance(start,end);
+        return (double) AMapUtils.calculateLineDistance(start, end);
     }
 
     private static SimpleDateFormat sdf = null;
 
+    /**
+     * 时间格式
+     * @param l
+     * @param strPattern
+     * @return
+     */
     public synchronized static String formatUTC(long l, String strPattern) {
         if (TextUtils.isEmpty(strPattern)) {
             strPattern = "yyyy-MM-dd HH:mm:ss";
@@ -113,7 +119,13 @@ public class Utils {
         return sdf == null ? "NULL" : sdf.format(l);
     }
 
+    /**
+     * 构造LatLng
+     * @param loc
+     * @return
+     */
     public synchronized static LatLng formatLatLng(AMapLocation loc) {
         return new LatLng(loc.getLatitude(), loc.getLongitude());
     }
+
 }
