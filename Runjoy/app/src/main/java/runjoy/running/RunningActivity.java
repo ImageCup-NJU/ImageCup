@@ -1,13 +1,9 @@
 package runjoy.running;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
@@ -21,9 +17,7 @@ import java.util.List;
 
 import runjoy.running.location.LocationController;
 import runjoy.running.location.LocationListener;
-import runjoy.startrunning.StartRunningFragment;
-import runjoy.startrunning.StartRunningPresenter_stub;
-import runjoy.tool.Utils;
+import runjoy.tool.LocationUtils;
 import runjoy.R;
 import runjoy.util.ActivityUtils;
 
@@ -89,10 +83,10 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
     public void moveLocation(AMapLocation loc) {
         if (null != loc) {
             //定位结果转换
-            LatLng current = Utils.formatLatLng(loc);
+            LatLng current = LocationUtils.formatLatLng(loc);
             aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 17));
             addNewLine(current);
-            addDistance(Utils.getDistance(lastLoc, Utils.formatLatLng(loc)));
+            addDistance(LocationUtils.getDistance(lastLoc, LocationUtils.formatLatLng(loc)));
             updateLastLoc(current);
         } else {
             Log.d("LogDemo", "定位失败！");
