@@ -53,6 +53,10 @@ public class RunningFragment extends Fragment implements RunningContract.View {
 
     private TextView tv_missionInfo;
 
+    private TextView tv_runningTitle;
+
+    private TextView tv_runningEndTitle;
+
     private long mainCalcTime;
 
     private Timer tmr;
@@ -114,6 +118,10 @@ public class RunningFragment extends Fragment implements RunningContract.View {
         tv_end_missionNum = (TextView) getActivity().findViewById(R.id.tv_end_missionNum);
 
         tv_missionInfo = (TextView) getActivity().findViewById(R.id.tv_missionInfo);
+
+        tv_runningTitle = (TextView) getActivity().findViewById(R.id.tv_runningTitle);
+
+        tv_runningEndTitle = (TextView) getActivity().findViewById(R.id.tv_runningEndTitle);
 
         btn_acceptMission.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -220,7 +228,10 @@ public class RunningFragment extends Fragment implements RunningContract.View {
 
     @Override
     public void showMap(RunModeEnum mode, Map<Double, Double> passPoint) {
-
+        if (mode == RunModeEnum.DIYRun) {
+            tv_runningTitle.setText("自定义跑进行中");
+            tv_runningEndTitle.setText("自定义跑结束");
+        }
     }
 
     @Override

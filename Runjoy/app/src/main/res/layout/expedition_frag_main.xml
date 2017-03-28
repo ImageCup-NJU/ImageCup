@@ -12,15 +12,22 @@
         android:layout_height="0dp"
         android:layout_weight="11">
 
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/map"
-                android:scaleType="fitXY"/>
-        </RelativeLayout>
+                android:src="@drawable/mymap"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/img_expedition"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/expedition0001"
+                android:scaleType="centerCrop"/>
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

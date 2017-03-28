@@ -3,7 +3,10 @@ package runjoy.running;
 import android.support.annotation.NonNull;
 
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import runjoy.data.RunInfo;
 import runjoy.data.TemporaryData;
 import runjoy.data.source.RouteDataSource;
 import runjoy.tool.enums.RunModeEnum;
@@ -30,7 +33,7 @@ public class RunningPresenter implements RunningContract.Presenter {
         mRunningView=runningView;
         mRouteDataSource=routeDataSource;
 
-        mode=TemporaryData.runMode;
+        mode=TemporaryData.getInstance().getRunMode();
         missionNum=0;
     }
 
@@ -42,12 +45,17 @@ public class RunningPresenter implements RunningContract.Presenter {
 
     @Override
     public void endRun(Long useTime) {
-
+        //RunInfo runInfo=new RunInfo();
     }
 
     @Override
     public void delayMessage() {
-
+        Timer timer = new Timer();// 实例化Timer类
+        timer.schedule(new TimerTask() {
+            public void run() {
+                mRunningView.showMessageDialog("");
+            }
+        }, 120000);
     }
 
     @Override
@@ -67,8 +75,8 @@ public class RunningPresenter implements RunningContract.Presenter {
 
     @Override
     public void start() {
-        if (TemporaryData.runMode== RunModeEnum.DIYRun){
-            route=TemporaryData.route;
+        if (TemporaryData.getInstance().getRunMode()== RunModeEnum.DIYRun){
+            route=TemporaryData.getInstance().getRoute();
         }
         startRun();
     }

@@ -2,6 +2,7 @@ package runjoy.expedition;
 
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -31,6 +32,8 @@ public class ExpeditionFragment extends Fragment implements ExpeditionContract.V
 
     private ImageButton historyButton;
 
+    private ImageView img_expedition;
+
     public static ExpeditionFragment newInstance() {
         return new ExpeditionFragment();
     }
@@ -53,6 +56,10 @@ public class ExpeditionFragment extends Fragment implements ExpeditionContract.V
         historyLayout.setVisibility(View.GONE);
 
         historyButton = (ImageButton) getActivity().findViewById(R.id.btn_expediontHistory);
+
+        img_expedition = (ImageView) getActivity().findViewById(R.id.img_expedition);
+
+        img_expedition.setImageResource(R.drawable.expedition0055);
 
         historyButton.setOnClickListener(new View.OnClickListener(){
             @Override

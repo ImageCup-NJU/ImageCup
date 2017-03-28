@@ -6,8 +6,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import runjoy.data.Account;
 import runjoy.data.Route;
 import runjoy.data.RunInfo;
+import runjoy.data.Weather;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -19,10 +21,6 @@ public class HomePagePresenter_stub implements HomePageContract.Presenter {
 
     @NonNull
     private final HomePageContract.View mHomePageView;
-
-    private RunInfo lastRunInfo;
-
-    private Route route;
 
     public HomePagePresenter_stub(@NonNull HomePageContract.View homePageView){
         mHomePageView=checkNotNull(homePageView);
@@ -42,8 +40,17 @@ public class HomePagePresenter_stub implements HomePageContract.Presenter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Route route = new Route(1, "南京","北京", 114, 20, 155525, 0);
+
         mHomePageView.showLastRun(runInfo);
+
+        Route route = new Route(1,"南京","北京",114,20,155525,0);
         mHomePageView.showMyTrip(route);
+
+        Weather weather = new Weather("南京", "天气晴朗", 25, 34);
+        mHomePageView.showWeather(weather);
+
+        Account account = new Account("Foxwel", 14, 25.5, 0.5, "foxwel@nju.edu.cn");
+        mHomePageView.showUserInfo(account);
+
     }
 }
