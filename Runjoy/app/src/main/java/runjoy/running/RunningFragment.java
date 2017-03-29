@@ -128,6 +128,8 @@ public class RunningFragment extends Fragment implements RunningContract.View {
             public void onClick(View v) {
                 layout_running_frag_mission.setVisibility(View.GONE);
                 mPresenter.newMission();
+                Intent a=new Intent(getActivity(), com.aa.ProductName.UnityPlayerActivity.class);
+                startActivity(a);
             }
         });
 
