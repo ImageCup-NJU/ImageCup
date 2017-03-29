@@ -21,6 +21,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -75,7 +76,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
                 RunEntry.COLUMN_NAME_DATE
         };
 
-        Cursor c = db.rawQuery("select * from run where date in (select max(date) from date)",null);
+        Cursor c = db.rawQuery("select * from run where date in (select max(date) from run)",null);
 
         RunInfo runInfo=null;
 
@@ -110,11 +111,13 @@ public class RoutesLocalDataSource implements RouteDataSource {
         SQLiteDatabase db=mDbHelper.getReadableDatabase();
 
         String [] projection={
+                RouteEntry._ID,
                 RouteEntry.COLUMN_NAME_START,
                 RouteEntry.COLUMN_NAME_END,
                 RouteEntry.COLUMN_NAME_ALLDISTANCE,
                 RouteEntry.COLUMN_NAME_DISTANCE,
-                RouteEntry.COLUMN_NAME_TIME
+                RouteEntry.COLUMN_NAME_TIME,
+                RouteEntry.COLUMN_NAME_COMPLETE
         };
 
         String selection = RouteEntry.COLUMN_NAME_COMPLETE+" LIKE ?";
@@ -127,7 +130,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
 
         if (c != null && c.getCount() > 0) {
             c.moveToFirst();
-            String id=c.getString(c.getColumnIndexOrThrow(RouteEntry._ID));
+            int id = c.getInt(0);
             String start = c.getString(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_START));
             String end = c.getString(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_END));
             Double allDistance =
@@ -135,7 +138,8 @@ public class RoutesLocalDataSource implements RouteDataSource {
             Double distance =
                     c.getDouble(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_DISTANCE));
             Long time=c.getLong(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_TIME));
-            route = new Route(id,start, end, allDistance, distance,time);
+            int complete=c.getInt(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_COMPLETE));
+            route = new Route(id, start, end, allDistance, distance,time,complete);
         }
         if (c != null) {
             c.close();
@@ -212,14 +216,19 @@ public class RoutesLocalDataSource implements RouteDataSource {
     public void updateRoute(@NonNull Route route) {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(RouteEntry.COLUMN_NAME_DISTANCE, route.getDistance());
-        values.put(RouteEntry.COLUMN_NAME_TIME, route.getTime());
-
-        String selection = RouteEntry._ID + " LIKE ?";
-        String[] selectionArgs = { route.getId() };
-
-        db.update(RouteEntry.TABLE_NAME, values, selection, selectionArgs);
+//        ContentValues values = new ContentValues();
+//        values.put(RouteEntry.COLUMN_NAME_DISTANCE, route.getDistance());
+//        values.put(RouteEntry.COLUMN_NAME_TIME, route.getTime());
+//
+//        String selection = RouteEntry._ID + " =' ? '";
+//        String[] selectionArgs = { Integer.toString(route.getId()) };
+//
+//        Log.i("?????????????????????",Integer.toString(route.getId()));
+//        db.update(RouteEntry.TABLE_NAME, values, selection, selectionArgs);
+        //修改SQL语句
+        String sql = "update route set distance = "+route.getDistance()+",time="+route.getTime()+",complete="+route.getIfComplete()+"  where _id = "+route.getId();
+        //执行SQL
+        db.execSQL(sql);
 
         db.close();
     }
@@ -235,6 +244,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
         values.put(RouteEntry.COLUMN_NAME_ALLDISTANCE,route.getAllDistance());
         values.put(RouteEntry.COLUMN_NAME_DISTANCE,route.getDistance());
         values.put(RouteEntry.COLUMN_NAME_TIME,route.getTime());
+        values.put(RouteEntry.COLUMN_NAME_COMPLETE,route.getIfComplete());
 
         db.insert(RouteEntry.TABLE_NAME, null, values);
 

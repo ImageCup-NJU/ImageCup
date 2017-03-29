@@ -1,6 +1,5 @@
 package runjoy.login;
 
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -20,5 +19,6 @@ public class LoginActivity extends AppCompatActivity {
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), loginFragment, R.id.layout_login_content);
         }
         new LoginPresenter_stub(loginFragment);
+
     }
 }

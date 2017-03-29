@@ -10,8 +10,34 @@ import runjoy.tool.enums.RunModeEnum;
 
 public class TemporaryData {
 
-    public static Map<Double,Double> route;
+    private Map<Double,Double> route=null;
 
-    public static RunModeEnum runMode;
+    private RunModeEnum runMode;
 
+    private static TemporaryData INSTANCE;
+
+    private TemporaryData(){}
+
+    public static TemporaryData getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new TemporaryData();
+        }
+        return INSTANCE;
+    }
+
+    public Map<Double, Double> getRoute() {
+        return route;
+    }
+
+    public void setRoute(Map<Double, Double> route) {
+        this.route = route;
+    }
+
+    public RunModeEnum getRunMode() {
+        return runMode;
+    }
+
+    public void setRunMode(RunModeEnum runMode) {
+        this.runMode = runMode;
+    }
 }

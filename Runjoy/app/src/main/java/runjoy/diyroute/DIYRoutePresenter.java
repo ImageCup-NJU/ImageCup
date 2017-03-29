@@ -3,6 +3,7 @@ package runjoy.diyroute;
 import android.support.annotation.NonNull;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 import runjoy.data.TemporaryData;
 
@@ -23,14 +24,15 @@ public class DIYRoutePresenter implements DIYRouteContract.Presenter {
 
     @Override
     public boolean newpoint(double longitude, double latitude) {
-        if(TemporaryData.route==null){
-            TemporaryData.route=new LinkedHashMap<>();
+        if(TemporaryData.getInstance().getRoute()==null){
+            Map<Double,Double> map=new LinkedHashMap<Double,Double>();
+            TemporaryData.getInstance().setRoute(map);
         }
         if (!ifActive(longitude,latitude)){
             diyRouteView.showReminder("这个位置点无效哦");
             return false;
         }
-        TemporaryData.route.put(longitude,latitude);
+        TemporaryData.getInstance().getRoute().put(longitude,latitude);
         return true;
     }
 

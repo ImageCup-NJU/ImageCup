@@ -40,9 +40,10 @@ public class HomePagePresenter_stub implements HomePageContract.Presenter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         mHomePageView.showLastRun(runInfo);
 
-        Route route = new Route("1","南京","北京",114,20,155525);
+        Route route = new Route(1,"南京","北京",114,20,155525,0);
         mHomePageView.showMyTrip(route);
 
         Weather weather = new Weather("南京", "天气晴朗", 25, 34);

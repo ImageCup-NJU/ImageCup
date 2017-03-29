@@ -19,10 +19,11 @@ package runjoy.data.source.local;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
 public class RouteDbHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 10;
 
     public static final String DATABASE_NAME = "Route.db";
 
@@ -34,18 +35,18 @@ public class RouteDbHelper extends SQLiteOpenHelper {
 
     private static final String TIME_TYPE = " INTEGER";
 
-    private static final String DATETYPE = " INTEGER";
+    private static final String DATETYPE = " LONG";
 
     private static final String COMMA_SEP = ",";
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + RoutesPersistenceContract.RouteEntry.TABLE_NAME + " (" +
-                    RoutesPersistenceContract.RouteEntry._ID + TEXT_TYPE + " PRIMARY KEY AUTOINCREMENT," +
+                    RoutesPersistenceContract.RouteEntry._ID + BOOLEAN_TYPE + " PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_START + TEXT_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_END + TEXT_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_ALLDISTANCE + DOUBLE_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_DISTANCE + DOUBLE_TYPE + COMMA_SEP +
-                    RoutesPersistenceContract.RouteEntry.COLUMN_NAME_TIME + TIME_TYPE +
+                    RoutesPersistenceContract.RouteEntry.COLUMN_NAME_TIME + TIME_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_COMPLETE + BOOLEAN_TYPE +
             " )";
 
@@ -55,7 +56,7 @@ public class RouteDbHelper extends SQLiteOpenHelper {
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_TIME + TIME_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_MISSIONNUM + BOOLEAN_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_ADDDISTANCE + DOUBLE_TYPE + COMMA_SEP +
-                    RoutesPersistenceContract.RunEntry.COLUMN_NAME_MESSAGE + TEXT_TYPE +
+                    RoutesPersistenceContract.RunEntry.COLUMN_NAME_MESSAGE + TEXT_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_DATE + DATETYPE +
                     " )";
 
@@ -69,7 +70,10 @@ public class RouteDbHelper extends SQLiteOpenHelper {
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Not required as at version 1
+        db.execSQL( "DROP TABLE IF EXISTS " + RoutesPersistenceContract.RouteEntry.TABLE_NAME );
+        db.execSQL( "DROP TABLE IF EXISTS " + RoutesPersistenceContract.RunEntry.TABLE_NAME );
+        onCreate(db);
+        Log. i("Database！！！！！！！！！" ,"onUpgrade" );
     }
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
