@@ -140,7 +140,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
                     c.getDouble(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_DISTANCE));
             int arDistance =
                     c.getInt(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_ARDISTANCE));
-            Long time=c.getLong(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_TIME));
+            int time=c.getInt(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_TIME));
             int complete=c.getInt(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_COMPLETE));
             route = new Route(id, start, end, allDistance, distance,arDistance,time,complete);
         }

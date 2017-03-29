@@ -25,13 +25,13 @@ public class Route {
     //ar任务增加的总路程
     private int arDistance;
 
-    //已用时间(秒)
-    private long time;
+    //已用时间(天数)
+    private int time;
 
     //是否完成
     private int ifComplete;
 
-    public Route(Integer id, String start,String end,double allDistance,double distance,int arDistance,long time,int ifComplete){
+    public Route(Integer id, String start,String end,double allDistance,double distance,int arDistance,int time,int ifComplete){
         this.id=id;
         this.start=start;
         this.end=end;
@@ -90,11 +90,11 @@ public class Route {
         this.distance = distance;
     }
 
-    public long getTime() {
+    public int getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(int time) {
         this.time = time;
     }
 

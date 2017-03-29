@@ -47,7 +47,7 @@ public class RouteDbHelper extends SQLiteOpenHelper {
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_ALLDISTANCE + DOUBLE_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_DISTANCE + DOUBLE_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_ARDISTANCE + BOOLEAN_TYPE + COMMA_SEP +
-                    RoutesPersistenceContract.RouteEntry.COLUMN_NAME_TIME + TIME_TYPE + COMMA_SEP +
+                    RoutesPersistenceContract.RouteEntry.COLUMN_NAME_TIME + BOOLEAN_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_COMPLETE + BOOLEAN_TYPE +
             " )";
 
