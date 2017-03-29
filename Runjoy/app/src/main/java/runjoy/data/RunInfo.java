@@ -23,19 +23,27 @@ public class RunInfo {
     //为到达目标地点增加了多少距离
     private double addDistance;
 
-    //奖励信息(如：为到达目标地点缩短了多少距离，缩短了多少时间等)
-    private String message;
+    //ar任务增加的距离
+    private int arDistance;
 
     //日期
     private Date date;
 
-    public RunInfo(double distance,long time,int missionNum,double addDistance,String message,Date date){
+    public RunInfo(double distance,long time,int missionNum,double addDistance,int arDistance,Date date){
         this.setDistance(distance);
         this.setTime(time);
         this.setMissionNum(missionNum);
         this.setAddDistance(addDistance);
-        this.setMessage(message);
+        this.setArDistance(arDistance);
         this.setDate(date);
+    }
+
+    public int getArDistance() {
+        return arDistance;
+    }
+
+    public void setArDistance(int arDistance) {
+        this.arDistance = arDistance;
     }
 
     public double getDistance() {
@@ -68,14 +76,6 @@ public class RunInfo {
 
     public void setAddDistance(double addDistance) {
         this.addDistance = addDistance;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public Date getDate() {

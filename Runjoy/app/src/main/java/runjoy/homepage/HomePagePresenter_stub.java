@@ -36,14 +36,14 @@ public class HomePagePresenter_stub implements HomePageContract.Presenter {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         RunInfo runInfo = null;
         try {
-            runInfo = new RunInfo(14.2,100000,2,20.2,"为了达到目的地做了贡献", dateFormat.parse("2015-3-13"));
+            runInfo = new RunInfo(14.2,100000,2,20.2,20, dateFormat.parse("2015-3-13"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         mHomePageView.showLastRun(runInfo);
 
-        Route route = new Route(1,"南京","北京",114,20,155525,0);
+        Route route = new Route(1,"南京","北京",114,20,0,155525,0);
         mHomePageView.showMyTrip(route);
 
         Weather weather = new Weather("南京", "天气晴朗", 25, 34);

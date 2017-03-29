@@ -23,7 +23,7 @@ import android.util.Log;
 
 
 public class RouteDbHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 10;
+    public static final int DATABASE_VERSION = 11;
 
     public static final String DATABASE_NAME = "Route.db";
 
@@ -46,6 +46,7 @@ public class RouteDbHelper extends SQLiteOpenHelper {
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_END + TEXT_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_ALLDISTANCE + DOUBLE_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_DISTANCE + DOUBLE_TYPE + COMMA_SEP +
+                    RoutesPersistenceContract.RouteEntry.COLUMN_NAME_ARDISTANCE + BOOLEAN_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_TIME + TIME_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RouteEntry.COLUMN_NAME_COMPLETE + BOOLEAN_TYPE +
             " )";
@@ -56,7 +57,7 @@ public class RouteDbHelper extends SQLiteOpenHelper {
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_TIME + TIME_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_MISSIONNUM + BOOLEAN_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_ADDDISTANCE + DOUBLE_TYPE + COMMA_SEP +
-                    RoutesPersistenceContract.RunEntry.COLUMN_NAME_MESSAGE + TEXT_TYPE + COMMA_SEP +
+                    RoutesPersistenceContract.RunEntry.COLUMN_NAME_ARDISTANCE + BOOLEAN_TYPE + COMMA_SEP +
                     RoutesPersistenceContract.RunEntry.COLUMN_NAME_DATE + DATETYPE +
                     " )";
 

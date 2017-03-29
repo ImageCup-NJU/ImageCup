@@ -35,6 +35,7 @@ public final class RoutesPersistenceContract {
         public static final String COLUMN_NAME_END = "end";
         public static final String COLUMN_NAME_ALLDISTANCE = "allDistance";
         public static final String COLUMN_NAME_DISTANCE = "distance";
+        public static final String COLUMN_NAME_ARDISTANCE = "arDistance";
         public static final String COLUMN_NAME_TIME = "time";
         public static final String COLUMN_NAME_COMPLETE = "complete";
     }
@@ -45,7 +46,7 @@ public final class RoutesPersistenceContract {
         public static final String COLUMN_NAME_TIME = "time";
         public static final String COLUMN_NAME_MISSIONNUM = "missionNum";
         public static final String COLUMN_NAME_ADDDISTANCE = "addDistance";
-        public static final String COLUMN_NAME_MESSAGE = "message";
+        public static final String COLUMN_NAME_ARDISTANCE = "arDistance";
         public static final String COLUMN_NAME_DATE = "date";
     }
 }

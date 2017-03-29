@@ -72,7 +72,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
                 RunEntry.COLUMN_NAME_TIME,
                 RunEntry.COLUMN_NAME_MISSIONNUM,
                 RunEntry.COLUMN_NAME_ADDDISTANCE,
-                RunEntry.COLUMN_NAME_MESSAGE,
+                RunEntry.COLUMN_NAME_ARDISTANCE,
                 RunEntry.COLUMN_NAME_DATE
         };
 
@@ -87,11 +87,11 @@ public class RoutesLocalDataSource implements RouteDataSource {
             int num = c.getInt(c.getColumnIndexOrThrow(RunEntry.COLUMN_NAME_MISSIONNUM));
             Double addDistance =
                     c.getDouble(c.getColumnIndexOrThrow(RunEntry.COLUMN_NAME_ADDDISTANCE));
-            String message =
-                    c.getString(c.getColumnIndexOrThrow(RunEntry.COLUMN_NAME_MESSAGE));
+            int arDistance =
+                    c.getInt(c.getColumnIndexOrThrow(RunEntry.COLUMN_NAME_ARDISTANCE));
             Long mdate=c.getLong(c.getColumnIndexOrThrow(RunEntry.COLUMN_NAME_DATE));
             Date date = new Date(mdate);
-            runInfo = new RunInfo(distance,time, num, addDistance, message,date);
+            runInfo = new RunInfo(distance,time, num, addDistance, arDistance,date);
         }
         if (c != null) {
             c.close();
@@ -116,6 +116,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
                 RouteEntry.COLUMN_NAME_END,
                 RouteEntry.COLUMN_NAME_ALLDISTANCE,
                 RouteEntry.COLUMN_NAME_DISTANCE,
+                RouteEntry.COLUMN_NAME_ARDISTANCE,
                 RouteEntry.COLUMN_NAME_TIME,
                 RouteEntry.COLUMN_NAME_COMPLETE
         };
@@ -137,9 +138,11 @@ public class RoutesLocalDataSource implements RouteDataSource {
                     c.getDouble(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_ALLDISTANCE));
             Double distance =
                     c.getDouble(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_DISTANCE));
+            int arDistance =
+                    c.getInt(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_ARDISTANCE));
             Long time=c.getLong(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_TIME));
             int complete=c.getInt(c.getColumnIndexOrThrow(RouteEntry.COLUMN_NAME_COMPLETE));
-            route = new Route(id, start, end, allDistance, distance,time,complete);
+            route = new Route(id, start, end, allDistance, distance,arDistance,time,complete);
         }
         if (c != null) {
             c.close();
@@ -204,7 +207,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
         values.put(RunEntry.COLUMN_NAME_TIME,runInfo.getTime());
         values.put(RunEntry.COLUMN_NAME_MISSIONNUM,runInfo.getMissionNum());
         values.put(RunEntry.COLUMN_NAME_ADDDISTANCE,runInfo.getAddDistance());
-        values.put(RunEntry.COLUMN_NAME_MESSAGE,runInfo.getMessage());
+        values.put(RunEntry.COLUMN_NAME_ARDISTANCE,runInfo.getArDistance());
         values.put(RunEntry.COLUMN_NAME_DATE,runInfo.getDate().getTime());
 
         db.insert(RunEntry.TABLE_NAME, null, values);
@@ -226,7 +229,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
 //        Log.i("?????????????????????",Integer.toString(route.getId()));
 //        db.update(RouteEntry.TABLE_NAME, values, selection, selectionArgs);
         //修改SQL语句
-        String sql = "update route set distance = "+route.getDistance()+",time="+route.getTime()+",complete="+route.getIfComplete()+"  where _id = "+route.getId();
+        String sql = "update route set distance = "+route.getDistance()+",time="+route.getTime()+",arDistance="+route.getArDistance()+",complete="+route.getIfComplete()+"  where _id = "+route.getId();
         //执行SQL
         db.execSQL(sql);
 
@@ -243,6 +246,7 @@ public class RoutesLocalDataSource implements RouteDataSource {
         values.put(RouteEntry.COLUMN_NAME_END,route.getEnd());
         values.put(RouteEntry.COLUMN_NAME_ALLDISTANCE,route.getAllDistance());
         values.put(RouteEntry.COLUMN_NAME_DISTANCE,route.getDistance());
+        values.put(RouteEntry.COLUMN_NAME_ARDISTANCE,route.getArDistance());
         values.put(RouteEntry.COLUMN_NAME_TIME,route.getTime());
         values.put(RouteEntry.COLUMN_NAME_COMPLETE,route.getIfComplete());
 

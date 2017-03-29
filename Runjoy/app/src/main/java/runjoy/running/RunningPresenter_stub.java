@@ -41,7 +41,7 @@ public class RunningPresenter_stub implements RunningContract.Presenter{
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         RunInfo runInfo = null;
         try {
-            runInfo = new RunInfo(14.2,useTime,2,20.2,"为了达到目的地做了贡献", dateFormat.parse("2015-3-13"));
+            runInfo = new RunInfo(14.2,useTime,2,20.2,20, dateFormat.parse("2015-3-13"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
