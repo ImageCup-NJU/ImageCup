@@ -324,14 +324,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/pic_start_end"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:scaleType="fitCenter"/>
-
+                    <include layout="@layout/expedition_info"></include>
                 </FrameLayout>
 
                 <LinearLayout

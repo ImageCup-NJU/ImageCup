@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <include layout="@layout/expedition_frag_main" />
+
     <include layout="@layout/expedition_frag_history" />
 
 </FrameLayout>

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import runjoy.data.City;
+import runjoy.data.Route;
 import runjoy.startrunning.StartRunningContract;
 import runjoy.tool.enums.RunModeEnum;
 
@@ -31,6 +32,9 @@ public class ExpeditionPresenter_stub implements ExpeditionContract.Presenter{
 
     @Override
     public void start() {
+        Route route = new Route(1, "南京", "上海", 144, 40, 14, 13, 0);
+        mExpeditionView.showMap(route);
+
         Map<String, String> map = new HashMap<>();
         map.put("南京","杭州");
         map.put("南京","天津");
