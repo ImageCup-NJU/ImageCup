@@ -32,6 +32,7 @@ public class HomePagePresenter_stub implements HomePageContract.Presenter {
     }
 
     public void showInfo(){
+        System.out.println("lalalalalal");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         RunInfo runInfo = null;
         try {

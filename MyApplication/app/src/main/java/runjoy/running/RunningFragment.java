@@ -149,6 +149,12 @@ public class RunningFragment extends Fragment implements RunningContract.View {
 
         img_expeditionBar2 = (ImageView) getActivity().findViewById(R.id.img_expeditionBar2);
 
+        tv_distance.setText("0.0");
+
+        tv_time.setText("00:00");
+
+        tv_missionNum.setText("0");
+
         btn_acceptMission.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -294,6 +300,31 @@ public class RunningFragment extends Fragment implements RunningContract.View {
         tv_end_time.setText(changeTime(runInfo.getTime()));
         tv_end_distance.setText(String.valueOf(runInfo.getDistance()));
         tv_end_missionNum.setText(String.valueOf(runInfo.getMissionNum()));
+
+
+
+        tv_expeditionStart.setText(route.getStart());
+        tv_expeditionEnd.setText(route.getEnd());
+
+        double allDistance = route.getAllDistance();
+        double distance = route.getDistance();
+        int time = route.getTime();
+        double ar = route.getArDistance();
+
+        int per =(int) ((distance / allDistance) * 100);
+
+        System.out.println("!!!!!!!!" + per);
+        String top =  "您的旅程还剩余" + String.valueOf(allDistance - distance) + "公里" ;
+        String buttom = "贡献额外 " + ar + " 公里";
+
+        LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, (float) (per/100.0));
+        LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, (float) ((100-per)/100.0));
+
+        if (per == 100) per = 99;
+        img_expeditionBar1.setLayoutParams(param1);
+        img_expeditionBar2.setLayoutParams(param2);
+        tv_expeditionTop.setText(top);
+        tv_expeditionButtom.setText(buttom);
     }
 
     @Override

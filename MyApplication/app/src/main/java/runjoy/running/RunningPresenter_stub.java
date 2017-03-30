@@ -39,12 +39,12 @@ public class RunningPresenter_stub implements RunningContract.Presenter{
     public void endRun(Long useTime) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         RunInfo runInfo = null;
-        Route route=new Route(1,"南京","上海",340,50,45,2,0);
         try {
             runInfo = new RunInfo(14.2,useTime,2,20.2,20, dateFormat.parse("2015-3-13"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        Route route = new Route(1, "南京", "上海", 144, 40, 14, 13, 0);
         mRunningView.showEndInfo(runInfo,route);
     }
 

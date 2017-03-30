@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import runjoy.R;
@@ -33,6 +35,18 @@ public class HomepageFragment extends Fragment implements HomePageContract.View 
     TextView tv_useDays;
 
     TextView tv_weather;
+
+    private TextView tv_expeditionTop;
+
+    private TextView tv_expeditionButtom;
+
+    private TextView tv_expeditionStart;
+
+    private TextView tv_expeditionEnd;
+
+    private ImageView img_expeditionBar1;
+
+    private ImageView img_expeditionBar2;
 
     public static HomepageFragment newInstance() {
         return new HomepageFragment();
@@ -61,6 +75,26 @@ public class HomepageFragment extends Fragment implements HomePageContract.View 
         tv_useDays = (TextView) getActivity().findViewById(R.id.tv_useDays);
 
         tv_weather = (TextView) getActivity().findViewById(R.id.tv_weather);
+
+        tv_expeditionTop = (TextView) getActivity().findViewById(R.id.tv_expeditionTop);
+
+        tv_expeditionButtom = (TextView) getActivity().findViewById(R.id.tv_expeditionButtom);
+
+        tv_expeditionStart = (TextView) getActivity().findViewById(R.id.tv_expeditionStart);
+
+        tv_expeditionEnd = (TextView) getActivity().findViewById(R.id.tv_expeditionEnd);
+
+        img_expeditionBar1 = (ImageView) getActivity().findViewById(R.id.img_expeditionBar1);
+
+        img_expeditionBar2 = (ImageView) getActivity().findViewById(R.id.img_expeditionBar2);
+
+        tv_expeditionTop.setText("");
+
+        tv_expeditionButtom.setText("");
+
+        tv_expeditionStart.setText("");
+
+        tv_expeditionEnd.setText("");
     }
 
     private String toTwoByte(String str) {
@@ -97,7 +131,28 @@ public class HomepageFragment extends Fragment implements HomePageContract.View 
 
     @Override
     public void showMyTrip(Route route) {
+        tv_expeditionStart.setText(route.getStart());
+        tv_expeditionEnd.setText(route.getEnd());
 
+        double allDistance = route.getAllDistance();
+        double distance = route.getDistance();
+        int time = route.getTime();
+        double ar = route.getArDistance();
+
+        int per =(int) ((distance / allDistance) * 100);
+
+        System.out.println("!!!!!!!!" + per);
+        String top =  "全长" + String.valueOf(allDistance) + "公里  已用" + String.valueOf(time) + "天" ;
+        String buttom = "您的旅程还剩" + String.valueOf(allDistance - distance) + "公里";
+
+        LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, (float) (per/100.0));
+        LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, (float) ((100-per)/100.0));
+
+        if (per == 100) per = 99;
+        img_expeditionBar1.setLayoutParams(param1);
+        img_expeditionBar2.setLayoutParams(param2);
+        tv_expeditionTop.setText(top);
+        tv_expeditionButtom.setText(buttom);
     }
 
     @Override
