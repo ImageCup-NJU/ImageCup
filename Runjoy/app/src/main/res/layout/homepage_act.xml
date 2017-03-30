@@ -15,7 +15,7 @@
             android:layout_height="0dp"
             android:layout_weight="21.2"
             android:id="@+id/layout_homepage_content">
-
+            <include layout="@layout/homepage_frag"></include>
         </FrameLayout>
 
         <LinearLayout

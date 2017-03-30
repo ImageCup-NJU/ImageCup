@@ -95,24 +95,12 @@
         </LinearLayout>
     </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
-    </FrameLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.5">
+        android:layout_weight="3">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/pic_start_end"
-            android:scaleType="fitCenter"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
+        <include layout="@layout/expedition_info"></include>
     </RelativeLayout>
 
 </LinearLayout>
