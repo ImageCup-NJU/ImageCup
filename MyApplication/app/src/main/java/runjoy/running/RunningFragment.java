@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -56,6 +57,18 @@ public class RunningFragment extends Fragment implements RunningContract.View {
     private TextView tv_runningTitle;
 
     private TextView tv_runningEndTitle;
+
+    private TextView tv_expeditionTop;
+
+    private TextView tv_expeditionButtom;
+
+    private TextView tv_expeditionStart;
+
+    private TextView tv_expeditionEnd;
+
+    private ImageView img_expeditionBar1;
+
+    private ImageView img_expeditionBar2;
 
     private long mainCalcTime;
 
@@ -122,6 +135,18 @@ public class RunningFragment extends Fragment implements RunningContract.View {
         tv_runningTitle = (TextView) getActivity().findViewById(R.id.tv_runningTitle);
 
         tv_runningEndTitle = (TextView) getActivity().findViewById(R.id.tv_runningEndTitle);
+
+        tv_expeditionTop = (TextView) getActivity().findViewById(R.id.tv_expeditionTop);
+
+        tv_expeditionButtom = (TextView) getActivity().findViewById(R.id.tv_expeditionButtom);
+
+        tv_expeditionStart = (TextView) getActivity().findViewById(R.id.tv_expeditionStart);
+
+        tv_expeditionEnd = (TextView) getActivity().findViewById(R.id.tv_expeditionEnd);
+
+        img_expeditionBar1 = (ImageView) getActivity().findViewById(R.id.img_expeditionBar1);
+
+        img_expeditionBar2 = (ImageView) getActivity().findViewById(R.id.img_expeditionBar2);
 
         btn_acceptMission.setOnClickListener(new View.OnClickListener(){
             @Override
