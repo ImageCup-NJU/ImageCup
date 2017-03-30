@@ -4,6 +4,7 @@ import java.util.Map;
 
 import runjoy.BasePresenter;
 import runjoy.BaseView;
+import runjoy.data.Route;
 import runjoy.data.RunInfo;
 import runjoy.tool.enums.RunModeEnum;
 
@@ -56,8 +57,9 @@ public interface RunningContract {
         /**
          * 展示结束跑步相关信息
          * @param runInfo   本次跑步信息
+         * @param route    里程信息
          */
-        void showEndInfo(RunInfo runInfo);
+        void showEndInfo(RunInfo runInfo, Route route);
 
     }
 

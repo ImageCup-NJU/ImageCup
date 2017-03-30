@@ -21,6 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import runjoy.R;
+import runjoy.data.Route;
 import runjoy.data.RunInfo;
 import runjoy.expedition.ExpeditionActivity;
 import runjoy.homepage.HomePageActivity;
@@ -264,7 +265,7 @@ public class RunningFragment extends Fragment implements RunningContract.View {
 
 
     @Override
-    public void showEndInfo(RunInfo runInfo) {
+    public void showEndInfo(RunInfo runInfo, Route route) {
         tv_end_time.setText(changeTime(runInfo.getTime()));
         tv_end_distance.setText(String.valueOf(runInfo.getDistance()));
         tv_end_missionNum.setText(String.valueOf(runInfo.getMissionNum()));
