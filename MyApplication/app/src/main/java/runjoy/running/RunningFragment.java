@@ -26,10 +26,13 @@ import runjoy.data.Route;
 import runjoy.data.RunInfo;
 import runjoy.expedition.ExpeditionActivity;
 import runjoy.homepage.HomePageActivity;
+import runjoy.settings.SettingsActivity;
 import runjoy.tool.enums.RunModeEnum;
 
 
 public class RunningFragment extends Fragment implements RunningContract.View {
+
+    private boolean flag;
 
     private RunningContract.Presenter mPresenter;
 
@@ -158,7 +161,12 @@ public class RunningFragment extends Fragment implements RunningContract.View {
         btn_acceptMission.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+               /*
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
+                */
                 layout_running_frag_mission.setVisibility(View.GONE);
+                stopTime();
                 mPresenter.newMission();
 
             }
@@ -168,7 +176,6 @@ public class RunningFragment extends Fragment implements RunningContract.View {
             @Override
             public void onClick(View v) {
                 layout_running_frag_mission.setVisibility(View.GONE);
-                mPresenter.delayMessage();
             }
         });
 
@@ -219,15 +226,23 @@ public class RunningFragment extends Fragment implements RunningContract.View {
                 startTime();
             }
         });
+
+        flag = false;
     }
 
     private void startTime() {
-        tmr = new Timer();
-        tmr.schedule(new timerTask(mainCalcTime), new Date(), 1000);
+        if (!flag) {
+            flag = true;
+            tmr = new Timer();
+            tmr.schedule(new timerTask(mainCalcTime), new Date(), 1000);
+        }
     }
 
     private void stopTime() {
-        tmr.cancel();
+        if (flag) {
+            tmr.cancel();
+            flag = false;
+        }
     }
 
     private class timerTask extends TimerTask {
