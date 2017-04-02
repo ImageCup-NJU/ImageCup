@@ -7,6 +7,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.amap.api.maps.LocationSource;
 
 /**
  * Created by JiachenWang on 2017/2/1.
@@ -48,8 +49,7 @@ public class LocationController {
     AMapLocationListener aMaplocationListener = new AMapLocationListener() {
         @Override
         public void onLocationChanged(AMapLocation loc) {
-            //TODO，抖动处理
-            locationListener.moveLocation(loc);
+            locationListener.onLocationMove(loc);
         }
     };
 
