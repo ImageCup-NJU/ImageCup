@@ -222,7 +222,7 @@ public class RunningFragment extends Fragment implements RunningContract.View {
             public void onClick(View v) {
                 layout_running_frag_free_setting.setVisibility(View.GONE);
                 mPresenter.startRun();
-                mPresenter.startMonitor();
+                mPresenter.startMonitor(0);
                 startTime();
             }
         });

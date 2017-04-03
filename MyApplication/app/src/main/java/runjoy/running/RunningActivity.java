@@ -29,6 +29,7 @@ import runjoy.data.PathRecord;
 import runjoy.running.location.LocationController;
 import runjoy.running.location.LocationListener;
 import runjoy.tool.LocationUtils;
+import runjoy.tool.NumberUtils;
 import runjoy.tool.ToastUtil;
 import runjoy.tool.TraceUtils;
 import runjoy.util.ActivityUtils;
@@ -37,6 +38,8 @@ import runjoy.util.ActivityUtils;
  * Created by JiachenWang on 2017/1/28
  */
 public class RunningActivity extends AppCompatActivity implements LocationListener, TraceListener {
+
+    private RunningContract.Presenter presenter;
 
     private LocationController locationController;
     private LocationSource.OnLocationChangedListener mListener;
@@ -74,7 +77,7 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
             runningFragment = runningFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), runningFragment, R.id.layout_running_content);
         }
-        new RunningPresenter_stub(runningFragment);
+        presenter = new RunningPresenter_stub(runningFragment);
 
 
         mapView = (MapView) findViewById(R.id.map);
@@ -104,7 +107,6 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
 //            aMap.setLocationSource();
         }
     }
-
 
 
     private void initpolyline() {
@@ -283,6 +285,7 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
                     mlocMarker.setPosition(linepoints.get(linepoints.size() - 1));
                     mlocMarker.showInfoWindow();
                 }
+                presenter.startMonitor(NumberUtils.doubleStander(((double) mDistance) / 1000.0));
             }
         } else if (lineID == 2) {
             if (linepoints != null && linepoints.size() > 0) {

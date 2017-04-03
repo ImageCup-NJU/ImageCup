@@ -68,7 +68,7 @@ public class RunningPresenter implements RunningContract.Presenter {
     }
 
     @Override
-    public void startMonitor() {
+    public void startMonitor(double diatance) {
 
     }
 

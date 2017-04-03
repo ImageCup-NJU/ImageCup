@@ -64,7 +64,7 @@ public class RunningPresenter_stub implements RunningContract.Presenter{
     }
 
     @Override
-    public void startMonitor() {
-        mRunningView.showDistance(0);
+    public void startMonitor(double diatance) {
+        mRunningView.showDistance(diatance);
     }
 }
