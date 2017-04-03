@@ -96,6 +96,6 @@ public interface RunningContract {
          * 开始监控用户的位置，到达任务点（自由跑步为用户跑了一定路程就到达任务点，diy为用户到达自己设置的任务点）
          * 提醒用户，调用showMessageDialog
          */
-        void startMonitor();
+        void startMonitor(double diatance);
     }
 }
