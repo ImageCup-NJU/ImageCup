@@ -16,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.MapView;
+
 import java.util.Date;
 import java.util.Map;
 import java.util.Timer;
@@ -77,6 +81,10 @@ public class RunningFragment extends Fragment implements RunningContract.View {
     private long mainCalcTime;
 
     private Timer tmr;
+
+    private AMap aMap;
+
+    private MapView mapView;
 
     public static RunningFragment newInstance() {
         return new RunningFragment();
@@ -194,6 +202,7 @@ public class RunningFragment extends Fragment implements RunningContract.View {
                 layout_running_frag_main.setVisibility(View.GONE);
                 layout_running_frag_end.setVisibility(View.VISIBLE);
                 mPresenter.endRun(mainCalcTime);
+                ((RunningActivity)getActivity()).stopRunning();
             }
         });
 
