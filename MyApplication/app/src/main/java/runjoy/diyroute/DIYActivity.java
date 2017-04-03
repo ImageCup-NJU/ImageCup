@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
@@ -19,16 +21,23 @@ import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import runjoy.R;
+import runjoy.data.TargetPoint;
+import runjoy.tool.LocationUtils;
 import runjoy.tool.ToastUtil;
+import runjoy.tool.location.LocController;
+import runjoy.tool.location.LocListener;
 
 /**
  * Created by JiachenWang on 2017/1/28.
  */
 public class DIYActivity extends Activity implements AMap.OnMapClickListener,
-        AMap.OnMarkerClickListener, GeocodeSearch.OnGeocodeSearchListener {
+        AMap.OnMarkerClickListener, GeocodeSearch.OnGeocodeSearchListener, LocListener {
+
+    private LocController locController;
 
     private AMap aMap;
     private MapView mapView;
@@ -36,8 +45,8 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
     ProgressDialog progressDialog;
 
     LatLng onclick;
-    private List<LatLng> list = null;
-    private int count = 1;
+    private List<TargetPoint> targetPoints;
+    private int id = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +57,6 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
         mapView.onCreate(savedInstanceState);// 此方法必须重写
 
         initial();
-        //TODO,先这么显示
-        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(32.060021, 118.787976), 17));
     }
 
     /**
@@ -57,10 +64,12 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
      */
     private void initial() {
         setUpMap();
+        locController = new LocController(this.getApplicationContext(), DIYActivity.this);
+        targetPoints = new ArrayList<>();
         geocoderSearch = new GeocodeSearch(this);
         geocoderSearch.setOnGeocodeSearchListener(this);
         progressDialog = new ProgressDialog(this);
-
+        locController.startLocation();
     }
 
     private void setUpMap() {
@@ -78,18 +87,22 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
      * 绘制标记
      *
      * @param pos
-     * @param level
+     * @param id
      * @param describe
      */
-    private void addMarker(LatLng pos, int level, String describe) {
+    private void addMarker(LatLng pos, int id, String describe) {
+        //添加目标点信息
+        TargetPoint point = new TargetPoint(pos, id, describe);
+        targetPoints.add(point);
+        //展示Marker
         aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 17));
         MarkerOptions markerOption = new MarkerOptions();
         markerOption.position(pos);
-        markerOption.title("第" + level + "个目标点").snippet(describe);
+        markerOption.title("第" + id + "个目标点").snippet(describe);
 
         markerOption.draggable(true);//设置Marker可拖动
         int pic;
-        switch (level) {
+        switch (id) {
             case 1:
                 pic = R.drawable.mark_1;
                 break;
@@ -107,12 +120,32 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
         // 将Marker设置为贴地显示，可以双指下拉地图查看效果
         markerOption.setFlat(true);//设置marker平贴地图效果
         aMap.addMarker(markerOption);
-        count++;
+        id++;
+    }
+
+    /**
+     * 只定位一次
+     * @param amapLocation 改变的位置信息
+     */
+    @Override
+    public void onLocationMove(AMapLocation amapLocation) {
+        if (locController != null && amapLocation != null) {
+            if (amapLocation != null && amapLocation.getErrorCode() == 0) {
+                LatLng mylocation = LocationUtils.formatLatLng(amapLocation);
+                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mylocation, 12));
+                locController.stopLocation();
+                locController.destroyLocation();
+            } else {
+                String errText = "定位失败," + amapLocation.getErrorCode() + ": "
+                        + amapLocation.getErrorInfo();
+                Log.e("AmapErr", errText);
+            }
+        }
     }
 
     @Override
     public void onMapClick(LatLng latLng) {
-        if (count <= 3) {
+        if (id <= 3) {
             onclick = latLng;
             getAddress(latLng);
         } else {
@@ -150,7 +183,7 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
                 address = address.substring(address.indexOf("街道") + 2);
                 ToastUtil.show(DIYActivity.this, address);
                 //添加目标点
-                addMarker(onclick, count, address);
+                addMarker(onclick, id, address);
             } else {
                 ToastUtil.show(DIYActivity.this, "查无结果");
             }
@@ -232,3 +265,4 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
     }
 
 }
+

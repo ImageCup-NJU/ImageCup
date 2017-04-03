@@ -26,8 +26,9 @@ import java.util.List;
 
 import runjoy.R;
 import runjoy.data.PathRecord;
-import runjoy.running.location.LocationController;
-import runjoy.running.location.LocationListener;
+import runjoy.data.TargetPoint;
+import runjoy.tool.location.RunningLocController;
+import runjoy.tool.location.RunningLocListener;
 import runjoy.tool.LocationUtils;
 import runjoy.tool.NumberUtils;
 import runjoy.tool.ToastUtil;
@@ -37,11 +38,11 @@ import runjoy.util.ActivityUtils;
 /**
  * Created by JiachenWang on 2017/1/28
  */
-public class RunningActivity extends AppCompatActivity implements LocationListener, TraceListener {
+public class RunningActivity extends AppCompatActivity implements RunningLocListener, TraceListener {
 
     private RunningContract.Presenter presenter;
 
-    private LocationController locationController;
+    private RunningLocController runningLocController;
     private LocationSource.OnLocationChangedListener mListener;
 
     private AMap aMap;
@@ -60,7 +61,7 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
     private Marker mlocMarker;
 
     //TODO，结束用校对代码
-//    locationController.stopLocation();
+//    runningLocController.stopLocation();
 //    mOverlayList.add(mTraceoverlay);
 //    LBSTraceClient mTraceClient = new LBSTraceClient(getApplicationContext());
 //    mTraceClient.queryProcessedTrace(2, Util.parseTraceLocationList(record.getPathline()) , LBSTraceClient.TYPE_AMAP, MainActivity.this);
@@ -84,7 +85,7 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
         mapView.onCreate(savedInstanceState);
 
         initial();
-        locationController.startLocation();
+        runningLocController.startLocation();
     }
 
     /**
@@ -95,7 +96,7 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
         setUpMap();
         mTraceoverlay = new TraceOverlay(aMap);
         record = new PathRecord();
-        locationController = new LocationController(this.getApplicationContext(), RunningActivity.this);
+        runningLocController = new RunningLocController(this.getApplicationContext(), RunningActivity.this);
         initpolyline();
     }
 
@@ -125,9 +126,8 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
      */
     @Override
     public void onLocationMove(AMapLocation amapLocation) {
-        if (locationController != null && amapLocation != null) {
+        if (runningLocController != null && amapLocation != null) {
             if (amapLocation != null && amapLocation.getErrorCode() == 0) {
-//                mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
                 LatLng mylocation = LocationUtils.formatLatLng(amapLocation);
                 aMap.moveCamera(CameraUpdateFactory.changeLatLng(mylocation));
                 record.addpoint(amapLocation);
@@ -146,9 +146,13 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
         }
     }
 
+    /**
+     * 抵达目标点
+     * @param target 目标点信息
+     */
     @Override
-    public void locationSource(LocationSource.OnLocationChangedListener listener) {
-        mListener = listener;
+    public void onTargetArrical(TargetPoint target) {
+        //TODO，到达目标点的行为
     }
 
     /**
@@ -226,10 +230,10 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
      */
     @Override
     protected void onDestroy() {
-        locationController.stopLocation();
+        runningLocController.stopLocation();
         super.onDestroy();
         mapView.onDestroy();
-        locationController.destroyLocation();
+        runningLocController.destroyLocation();
     }
 
     private void trace() {
@@ -273,19 +277,19 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
                 mTraceoverlay.add(linepoints);
                 mDistance += distance;
                 mTraceoverlay.setDistance(mTraceoverlay.getDistance() + distance);
-                if (mlocMarker == null) {
-                    mlocMarker = aMap.addMarker(new MarkerOptions().position(linepoints.get(linepoints.size() - 1))
-                            .icon(BitmapDescriptorFactory
-                                    .fromResource(R.drawable.point))
-                            .title("距离：" + mDistance + "米"));
-                    mlocMarker.showInfoWindow();
-                } else {
-                    mlocMarker.setTitle("距离：" + mDistance + "米");
-                    ToastUtil.show(RunningActivity.this, "距离" + mDistance);
-                    mlocMarker.setPosition(linepoints.get(linepoints.size() - 1));
-                    mlocMarker.showInfoWindow();
-                }
-                presenter.startMonitor(NumberUtils.doubleStander(((double) mDistance) / 1000.0));
+//                if (mlocMarker == null) {
+//                    mlocMarker = aMap.addMarker(new MarkerOptions().position(linepoints.get(linepoints.size() - 1))
+//                            .icon(BitmapDescriptorFactory
+//                                    .fromResource(R.drawable.point))
+//                            .title("距离：" + mDistance + "米"));
+//                    mlocMarker.showInfoWindow();
+//                } else {
+//                    mlocMarker.setTitle("距离：" + mDistance + "米");
+//                    ToastUtil.show(RunningActivity.this, "距离" + mDistance);
+//                    mlocMarker.setPosition(linepoints.get(linepoints.size() - 1));
+//                    mlocMarker.showInfoWindow();
+//                }
+                presenter.startMonitor(NumberUtils.doubleStander(((double) getTotalDistance()) / 1000.0));
             }
         } else if (lineID == 2) {
             if (linepoints != null && linepoints.size() > 0) {

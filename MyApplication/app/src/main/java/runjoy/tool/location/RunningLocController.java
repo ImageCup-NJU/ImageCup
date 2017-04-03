@@ -1,4 +1,4 @@
-package runjoy.running.location;
+package runjoy.tool.location;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,24 +7,49 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-import com.amap.api.maps.LocationSource;
+import com.amap.api.maps.model.LatLng;
+
+import java.util.Iterator;
+import java.util.List;
+
+import runjoy.data.TargetPoint;
+import runjoy.tool.LocationUtils;
 
 /**
  * Created by JiachenWang on 2017/2/1.
  */
-public class LocationController {
+public class RunningLocController {
 
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = new AMapLocationClientOption();
 
     private Context context;
-    private LocationListener locationListener;
+    private RunningLocListener runningLocListener;
+    private List<TargetPoint> targetPoints;
+    private boolean targetLeft;
 
-    public LocationController(@NonNull Context context, @NonNull LocationListener locationListener) {
+    public RunningLocController(@NonNull Context context, @NonNull RunningLocListener runningLocListener) {
         this.context = context;
-        this.locationListener = locationListener;
+        this.runningLocListener = runningLocListener;
+        targetLeft = false;
         //初始化定位
-        if (context!=null){
+        if (context != null) {
+            initLocation();
+        }
+
+    }
+
+    public RunningLocController(@NonNull Context context, @NonNull RunningLocListener runningLocListener
+            , List<TargetPoint> targetPoints) {
+        this.context = context;
+        this.runningLocListener = runningLocListener;
+        this.targetPoints = targetPoints;
+        if (targetPoints != null && targetPoints.size() > 1)
+            targetLeft = true;
+        else
+            targetLeft = false;
+        //初始化定位
+        if (context != null) {
             initLocation();
         }
 
@@ -32,7 +57,6 @@ public class LocationController {
 
     /**
      * 初始化定位
-     *
      */
     private void initLocation() {
         //初始化client
@@ -49,7 +73,23 @@ public class LocationController {
     AMapLocationListener aMaplocationListener = new AMapLocationListener() {
         @Override
         public void onLocationChanged(AMapLocation loc) {
-            locationListener.onLocationMove(loc);
+            runningLocListener.onLocationMove(loc);
+            //目标点定位
+            if (targetLeft){
+                LatLng mylocation = LocationUtils.formatLatLng(loc);
+                Iterator iterator  = targetPoints.iterator();
+                while(iterator.hasNext()){
+                    TargetPoint point = (TargetPoint)iterator.next();
+                    if (LocationUtils.getDistance(point.getLatLng(), mylocation) < 50){
+                        //抵达目标点，距离小于50米
+                        runningLocListener.onTargetArrical(point);
+                        iterator.remove();
+                        break;
+                    }
+                }
+                if (targetPoints.size()==0)
+                    targetLeft = false;
+            }
         }
     };
 
