@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import runjoy.R;
+import runjoy.achievement.AchievementActivity;
 import runjoy.expedition.ExpeditionActivity;
 import runjoy.settings.SettingsActivity;
 import runjoy.startrunning.StartRunningActivity;
@@ -49,11 +50,22 @@ public class HomePageActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         Button btn_navibar_setting = (Button) findViewById(R.id.btn_navibar_setting);
         btn_navibar_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomePageActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        Button btn_navibar_achievement = (Button) findViewById(R.id.btn_navibar_achievement);
+        btn_navibar_achievement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePageActivity.this, AchievementActivity.class);
                 startActivity(intent);
                 finish();
             }
