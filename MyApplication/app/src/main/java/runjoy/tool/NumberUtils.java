@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 
 public class NumberUtils {
 
-    private static final DecimalFormat df_double = new DecimalFormat("00.00");
+    private static final DecimalFormat df_double = new DecimalFormat("00.0");
     private static final DecimalFormat df_int = new DecimalFormat("#");
 
     public static String formatDouble(double input) {

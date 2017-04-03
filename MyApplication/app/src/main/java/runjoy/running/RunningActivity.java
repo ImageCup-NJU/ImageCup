@@ -286,7 +286,6 @@ public class RunningActivity extends AppCompatActivity implements LocationListen
                     mlocMarker.showInfoWindow();
                 }
                 presenter.startMonitor(NumberUtils.doubleStander(((double) mDistance) / 1000.0));
-                System.out.println((((double) mDistance) / 1000.0) + "xxxxx");
             }
         } else if (lineID == 2) {
             if (linepoints != null && linepoints.size() > 0) {
