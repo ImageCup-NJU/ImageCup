@@ -50,10 +50,18 @@
         </LinearLayout>
     </LinearLayout>
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/layout_running_content">
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_running_end_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/running_act2"></include>
     </FrameLayout>
 
 </FrameLayout>

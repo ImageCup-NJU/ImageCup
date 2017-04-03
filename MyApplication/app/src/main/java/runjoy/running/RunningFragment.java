@@ -202,6 +202,7 @@ public class RunningFragment extends Fragment implements RunningContract.View {
                 layout_running_frag_main.setVisibility(View.GONE);
                 layout_running_frag_end.setVisibility(View.VISIBLE);
                 mPresenter.endRun(mainCalcTime);
+                ((RunningActivity)getActivity()).showEndMap();
                 ((RunningActivity)getActivity()).stopRunning();
             }
         });

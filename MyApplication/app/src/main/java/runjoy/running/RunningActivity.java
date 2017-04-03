@@ -5,7 +5,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
@@ -42,6 +45,8 @@ import runjoy.util.ActivityUtils;
 public class RunningActivity extends AppCompatActivity implements RunningLocListener, TraceListener {
 
     private RunningContract.Presenter presenter;
+
+    private FrameLayout layout_running_end_map;
 
     private RunningLocController runningLocController;
     private LocationSource.OnLocationChangedListener mListener;
@@ -87,6 +92,9 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
 
         initial();
         runningLocController.startLocation();
+
+        layout_running_end_map = (FrameLayout) findViewById(R.id.layout_running_end_map);
+        layout_running_end_map.setVisibility(View.GONE);
     }
 
     /**
@@ -316,6 +324,10 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
             distance = distance + to.getDistance();
         }
         return distance;
+    }
+
+    public void showEndMap() {
+        layout_running_end_map.setVisibility(View.VISIBLE);
     }
 
 }

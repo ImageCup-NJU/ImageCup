@@ -272,11 +272,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="13">
-                    <com.amap.api.maps.MapView
-                        android:id="@+id/map_endRunning"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
                 </FrameLayout>
 
                 <LinearLayout
