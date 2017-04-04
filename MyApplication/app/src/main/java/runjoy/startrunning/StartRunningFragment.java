@@ -61,6 +61,7 @@ public class StartRunningFragment extends Fragment implements StartRunningContra
                 mPresenter.selectMode(RunModeEnum.FreeRun);
                 getActivity().finish();
                 Intent intent = new Intent(getActivity(), RunningActivity.class);
+                intent.putExtra("type", 0);
                 startActivity(intent);
             }
         });

@@ -38,6 +38,8 @@ public class RunningFragment extends Fragment implements RunningContract.View {
 
     private boolean flag;
 
+    private int type;
+
     private RunningContract.Presenter mPresenter;
 
     private LinearLayout layout_running_frag_main;
@@ -234,6 +236,14 @@ public class RunningFragment extends Fragment implements RunningContract.View {
         });
 
         flag = false;
+
+        if (type == 1) {
+            tv_runningTitle.setText("自定义跑进行中");
+            tv_runningEndTitle.setText("自定义跑结束");
+            layout_running_frag_free_setting.setVisibility(View.GONE);
+            mPresenter.startRun();
+            startTime();
+        }
     }
 
     private void startTime() {
@@ -280,11 +290,17 @@ public class RunningFragment extends Fragment implements RunningContract.View {
         mPresenter.start();
     }
 
+
+    public void setType(int x) {
+            this.type = x;
+    }
+
     @Override
     public void showMap(RunModeEnum mode, Map<Double, Double> passPoint) {
         if (mode == RunModeEnum.DIYRun) {
             tv_runningTitle.setText("自定义跑进行中");
             tv_runningEndTitle.setText("自定义跑结束");
+
         }
     }
 

@@ -1,5 +1,6 @@
 package runjoy.running;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -78,6 +79,9 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        int type = intent.getExtras().getInt("type");
+
         setContentView(R.layout.running_act);
 
         RunningFragment runningFragment = (RunningFragment) getSupportFragmentManager().findFragmentById(R.id.layout_running_content);
@@ -88,6 +92,7 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
         }
         presenter = new RunningPresenter_stub(runningFragment);
 
+        runningFragment.setType(type);
 
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
