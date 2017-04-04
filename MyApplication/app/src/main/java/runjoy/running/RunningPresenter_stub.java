@@ -32,7 +32,7 @@ public class RunningPresenter_stub implements RunningContract.Presenter{
 
     @Override
     public void startRun() {
-        mRunningView.showMessageDialog("!!前方有一只小猫已经三天没有吃东西了，正眼巴巴地望着你给它喂食，它心满意足地吃饱以后，可以为你的行程增加贡献哦！");
+        mRunningView.showMessageDialog("前方有一只小猫已经三天没有吃东西了，正眼巴巴地望着你给它喂食，它心满意足地吃饱以后，可以为你的行程增加贡献哦！");
     }
 
     @Override
@@ -40,7 +40,7 @@ public class RunningPresenter_stub implements RunningContract.Presenter{
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         RunInfo runInfo = null;
         try {
-            runInfo = new RunInfo(14.2,useTime,2,20.2,20, dateFormat.parse("2015-3-13"));
+            runInfo = new RunInfo(0,useTime,0,20.2,20, dateFormat.parse("2015-3-13"));
         } catch (ParseException e) {
             e.printStackTrace();
         }

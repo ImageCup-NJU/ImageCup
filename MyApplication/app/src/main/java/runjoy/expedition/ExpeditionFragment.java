@@ -117,7 +117,7 @@ public class ExpeditionFragment extends Fragment implements ExpeditionContract.V
         int per =(int) ((distance / allDistance) * 100);
 
         System.out.println("!!!!!!!!" + per);
-        String top =  "您已经跑了" + String.valueOf(time) + "天     剩余" + String.valueOf(allDistance - distance) + "公里" ;
+        String top =  "您已跑了" + String.valueOf(time) + "天  剩余" + String.valueOf(allDistance - distance) + "公里" ;
         String buttom = "贡献额外 " + ar + " 公里";
 
         LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, (float) (per/100.0));

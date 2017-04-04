@@ -141,8 +141,8 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
     }
 
     public void stopRunning() {
-        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLoc, 8));
-        end_aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLoc, 8));
+        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLoc, 14));
+        end_aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLoc, 14));
         runningLocController.stopLocation();
     }
 
