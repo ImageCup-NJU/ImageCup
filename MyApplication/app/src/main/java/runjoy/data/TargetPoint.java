@@ -4,6 +4,8 @@ import com.amap.api.maps.model.LatLng;
 
 import java.io.Serializable;
 
+import runjoy.tool.LocationUtils;
+
 /**
  * Created by JiachenWang on 2017/4/3.
  */
@@ -12,10 +14,12 @@ public class TargetPoint implements Serializable {
 
     private int id;
     private String describe;
-    private LatLng latLng;
+    private double latitude;
+    private double longitude;
 
     public TargetPoint(LatLng latLng, int id, String describe) {
-        this.latLng = latLng;
+        this.latitude = latLng.latitude;
+        this.longitude = latLng.longitude;
         this.id = id;
         this.describe = describe;
     }
@@ -36,20 +40,32 @@ public class TargetPoint implements Serializable {
         this.describe = describe;
     }
 
-    public LatLng getLatLng() {
-        return latLng;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setLatLng(LatLng latLng) {
-        this.latLng = latLng;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public LatLng getLatLng(){
+        return new LatLng(this.getLatitude(),this.getLongitude());
+    }
     @Override
     public String toString() {
         return "TargetPoint{" +
                 "id=" + id +
                 ", describe='" + describe + '\'' +
-                ", latLng=" + latLng +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
                 '}';
     }
 }
