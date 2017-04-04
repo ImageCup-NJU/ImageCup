@@ -82,10 +82,6 @@ public class RunningFragment extends Fragment implements RunningContract.View {
 
     private Timer tmr;
 
-    private AMap aMap;
-
-    private MapView mapView;
-
     public static RunningFragment newInstance() {
         return new RunningFragment();
     }

@@ -52,8 +52,11 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
     private LocationSource.OnLocationChangedListener mListener;
 
     private AMap aMap;
-
     private MapView mapView;
+
+    private AMap end_aMap;
+    private MapView end_mapView;
+
     private Polyline mpolyline;
     private PolylineOptions mPolyoptions, tracePolytion;
 
@@ -89,6 +92,8 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
 
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
+        end_mapView = (MapView) findViewById(R.id.map_endRunning);
+        end_mapView.onCreate(savedInstanceState);
 
         initial();
         runningLocController.startLocation();
@@ -114,6 +119,11 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
             aMap = mapView.getMap();
             aMap.moveCamera(CameraUpdateFactory.zoomTo(14));
             aMap.setMapTextZIndex(2);
+        }
+        if (end_aMap == null) {
+            end_aMap = end_mapView.getMap();
+            end_aMap.moveCamera(CameraUpdateFactory.zoomTo(14));
+            end_aMap.setMapTextZIndex(2);
         }
     }
 
