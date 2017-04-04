@@ -1,5 +1,6 @@
 package runjoy.running;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
+import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
 import com.amap.api.trace.LBSTraceClient;
@@ -109,11 +111,15 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
         record = new PathRecord();
         //Intent 拿目标点信息
         List<TargetPoint> targetPoints = (List<TargetPoint>) getIntent().getSerializableExtra("targetPoints");
-        if (targetPoints == null)
+        if (targetPoints == null) {
             runningLocController = new RunningLocController(this.getApplicationContext(), RunningActivity.this);
-        else
+        } else {
             runningLocController = new RunningLocController(this.getApplicationContext(), RunningActivity.this, targetPoints);
+            for (TargetPoint point : targetPoints)
+                this.addMarker(point);
+        }
         initpolyline();
+
     }
 
     private void setUpMap() {
@@ -221,6 +227,39 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
         } else {
             ToastUtil.showerror(RunningActivity.this, "错误：没有成功记录数据");
         }
+    }
+
+    /**
+     * 绘制标记
+     *
+     * @param targetPoint
+     */
+    private void addMarker(TargetPoint targetPoint) {
+        //展示Marker
+        MarkerOptions markerOption = new MarkerOptions();
+        markerOption.position(targetPoint.getLatLng());
+        markerOption.title("第" + targetPoint.getId() + "个目标点").snippet(targetPoint.getDescribe());
+
+        markerOption.draggable(true);//设置Marker可拖动
+        int pic;
+        switch (targetPoint.getId()) {
+            case 1:
+                pic = R.drawable.mark_1;
+                break;
+            case 2:
+                pic = R.drawable.mark_2;
+                break;
+            case 3:
+                pic = R.drawable.mark_3;
+                break;
+            default:
+                pic = R.drawable.mark_1;
+        }
+        markerOption.icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory
+                .decodeResource(getResources(), pic)));
+        // 将Marker设置为贴地显示，可以双指下拉地图查看效果
+        markerOption.setFlat(true);//设置marker平贴地图效果
+        aMap.addMarker(markerOption);
     }
 
     /**
