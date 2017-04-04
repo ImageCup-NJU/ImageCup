@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import runjoy.R;
+import runjoy.diyroute.DIYActivity;
 import runjoy.running.RunningActivity;
 import runjoy.tool.enums.RunModeEnum;
 
@@ -48,6 +49,9 @@ public class StartRunningFragment extends Fragment implements StartRunningContra
             @Override
             public void onClick(View v) {
                 mPresenter.selectMode(RunModeEnum.DIYRun);
+                getActivity().finish();
+                Intent intent = new Intent(getActivity(), DIYActivity.class);
+                startActivity(intent);
             }
         });
 

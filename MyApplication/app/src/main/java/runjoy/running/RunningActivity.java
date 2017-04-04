@@ -1,14 +1,11 @@
 package runjoy.running;
 
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
@@ -110,7 +107,12 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
         setUpMap();
         mTraceoverlay = new TraceOverlay(aMap);
         record = new PathRecord();
-        runningLocController = new RunningLocController(this.getApplicationContext(), RunningActivity.this);
+        //Intent 拿目标点信息
+        List<TargetPoint> targetPoints = (List<TargetPoint>) getIntent().getSerializableExtra("targetPoints");
+        if (targetPoints == null)
+            runningLocController = new RunningLocController(this.getApplicationContext(), RunningActivity.this);
+        else
+            runningLocController = new RunningLocController(this.getApplicationContext(), RunningActivity.this, targetPoints);
         initpolyline();
     }
 
@@ -175,6 +177,7 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
     @Override
     public void onTargetArrical(TargetPoint target) {
         //TODO，到达目标点的行为
+        ToastUtil.show(RunningActivity.this, "到达目标点：" + target.getDescribe());
     }
 
     /**

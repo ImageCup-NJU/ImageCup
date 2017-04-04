@@ -41,6 +41,7 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
 
     private AMap aMap;
     private MapView mapView;
+
     GeocodeSearch geocoderSearch;
     ProgressDialog progressDialog;
 
@@ -120,7 +121,7 @@ public class DIYActivity extends Activity implements AMap.OnMapClickListener,
         // 将Marker设置为贴地显示，可以双指下拉地图查看效果
         markerOption.setFlat(true);//设置marker平贴地图效果
         aMap.addMarker(markerOption);
-        id++;
+        this.id++;
     }
 
     /**

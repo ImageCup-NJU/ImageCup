@@ -2,11 +2,13 @@ package runjoy.data;
 
 import com.amap.api.maps.model.LatLng;
 
+import java.io.Serializable;
+
 /**
  * Created by JiachenWang on 2017/4/3.
  */
 
-public class TargetPoint {
+public class TargetPoint implements Serializable {
 
     private int id;
     private String describe;
@@ -40,5 +42,14 @@ public class TargetPoint {
 
     public void setLatLng(LatLng latLng) {
         this.latLng = latLng;
+    }
+
+    @Override
+    public String toString() {
+        return "TargetPoint{" +
+                "id=" + id +
+                ", describe='" + describe + '\'' +
+                ", latLng=" + latLng +
+                '}';
     }
 }
