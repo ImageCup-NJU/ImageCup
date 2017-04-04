@@ -141,6 +141,8 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
     }
 
     public void stopRunning() {
+        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLoc, 8));
+        end_aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLoc, 8));
         runningLocController.stopLocation();
     }
 
@@ -346,19 +348,19 @@ public class RunningActivity extends AppCompatActivity implements RunningLocList
                 mTraceoverlay.add(linepoints);
                 mDistance += distance;
                 mTraceoverlay.setDistance(mTraceoverlay.getDistance() + distance);
-//                if (mlocMarker == null) {
-//                    mlocMarker = aMap.addMarker(new MarkerOptions().position(linepoints.get(linepoints.size() - 1))
-//                            .icon(BitmapDescriptorFactory
-//                                    .fromResource(R.drawable.point))
-//                            .title("距离：" + mDistance + "米"));
-//                    mlocMarker.showInfoWindow();
-//                } else {
-//                    mlocMarker.setTitle("距离：" + mDistance + "米");
-//                    ToastUtil.show(RunningActivity.this, "距离" + mDistance);
-//                    mlocMarker.setPosition(linepoints.get(linepoints.size() - 1));
-//                    mlocMarker.showInfoWindow();
-//                }
-                presenter.startMonitor(NumberUtils.doubleStander(((double) getTotalDistance()) / 1000.0));
+                if (mlocMarker == null) {
+                    mlocMarker = aMap.addMarker(new MarkerOptions().position(linepoints.get(linepoints.size() - 1))
+                            .icon(BitmapDescriptorFactory
+                                    .fromResource(R.drawable.point))
+                            .title("距离：" + mDistance + "米"));
+                    mlocMarker.showInfoWindow();
+                } else {
+                    mlocMarker.setTitle("距离：" + mDistance + "米");
+                    ToastUtil.show(RunningActivity.this, "距离" + mDistance);
+                    mlocMarker.setPosition(linepoints.get(linepoints.size() - 1));
+                    mlocMarker.showInfoWindow();
+                }
+                presenter.startMonitor(NumberUtils.doubleStander(((double) mDistance) / 1000.0));
             }
         } else if (lineID == 2) {
             if (linepoints != null && linepoints.size() > 0) {
